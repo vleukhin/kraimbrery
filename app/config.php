@@ -1,4 +1,4 @@
-<? 
+<?
  return array (
   'db_host' => 'localhost',
   'db_name' => 'mari_kraimbrery',
