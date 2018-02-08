@@ -43,13 +43,13 @@
 <div class="gradient">
     <div class="neon-line" id="who">Кто она</div>
     <div class="text-info color-yellow">
-        {if $who_is_she_img?}
+        {if $who_is_she_img}
             <div><img src="{$who_is_she_img}" alt=""></div>{/if}
-        {if $who_is_she_head?}
+        {if $who_is_she_head}
             <div class="strong">{$who_is_she_head}</div>{/if}
-        {if $who_is_she_intro?}
+        {if $who_is_she_intro}
             <div class="intro-text">{$who_is_she_intro}</div>{/if}
-        {if $who_is_she_full?}
+        {if $who_is_she_full}
             <div class="full-text">{$who_is_she_full}</div>{/if}
         <div class="btn btn-text">Читать далее</div>
     </div>
