@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="478f99b0-e469-4865-a2c0-ab817f8a7d7a" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/.htaccess" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/deployment.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/kraimbrery.com.iml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/webServers.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Controllers/Config.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Controllers/Error.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Controllers/Landing.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Controllers/Moderka.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/Controllers/Router.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/afi.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/app/config.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/error/400.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/error/401.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/error/403.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/error/404.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/error/500.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/error/style.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/favicon-16x16.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/favicon-32x32.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/favicon.ico" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/index.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/moderka/.htaccess" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/moderka/.htpasswd" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/moderka/index.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/moderka/templates/afi.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/moderka/templates/layout.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/moderka/templates/photo.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/moderka/templates/setting.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/moderka/templates/slider.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/css/main.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/css/main.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/BebasBold/BebasBold.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/BebasBold/BebasBold.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/BebasBold/BebasBold.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/FontAwesome.otf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/LatoBold/LatoBold.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/LatoBold/LatoBold.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/LatoBold/LatoBold.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/LatoLight/LatoLight.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/LatoLight/LatoLight.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/LatoLight/LatoLight.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/fonts/fontawesome-webfont.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/img/1170px_12columns.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/img/1170px_12columns_m-min.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/img/1170px_12columns_m.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/img/main.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/img/velvetmusic-logo.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/js/main.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/js/main.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/templates/landing.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/1510098070491245a96ca55a3fed22b0c8500d2d023542.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/css/main.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/css/main.min.css" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/BebasBold/BebasBold.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/BebasBold/BebasBold.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/BebasBold/BebasBold.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/FontAwesome.otf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/LatoBold/LatoBold.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/LatoBold/LatoBold.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/LatoBold/LatoBold.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/LatoLight/LatoLight.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/LatoLight/LatoLight.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/LatoLight/LatoLight.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/fontawesome-webfont.eot" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/fontawesome-webfont.svg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/fontawesome-webfont.ttf" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/fontawesome-webfont.woff" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/fonts/fontawesome-webfont.woff2" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/img/1170px_12columns.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/img/1170px_12columns_m-min.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/img/1170px_12columns_m.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/img/main.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/img/velvetmusic-logo.png" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/js/main.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/js/main.min.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/about/templates/landing.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/audio/15098222368744694f79a4ce8c70a91f1dc05fd6e7aef4.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/audio/15101016222734694f79a4ce8c70a91f1dc05fd6e7aef4.mp3" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/photo/01.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/photo/02.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/slider/01.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/uploads/slider/02.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/autoload.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/.coveralls.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/.gitignore" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/.travis.yml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/CHANGELOG.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/README.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/authors.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/composer.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/composer.lock" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/adapters.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/articles.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/benchmark.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/callbacks.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/configuration.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/dev/internal.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/dev/readme.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/dev/schema.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/ext/extend.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/ext/extensions.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/ext/inheritance.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/ext/mods.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/ext/parsing.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/ext/provider.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/ext/tags.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/helpme.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/date_format.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/ematch.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/ereplace.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/escape.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/esplit.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/in.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/join.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/length.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/lower.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/match.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/replace.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/split.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/strip.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/truncate.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/unescape.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/mods/upper.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/operators.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/readme.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/start.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/syntax.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/autoescape.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/autotrim.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/cycle.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/do.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/extends.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/filter.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/for.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/foreach.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/if.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/ignore.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/include.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/macro.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/raw.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/set.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/switch.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/en/tags/unset.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/readme.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/adapters.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/articles.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/benchmark.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/callbacks.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/configuration.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/dev/internal.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/dev/readme.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/dev/schema.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/ext/extend.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/ext/extensions.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/ext/tags.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/inheritance.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/date_format.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/ematch.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/ereplace.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/escape.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/esplit.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/in.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/join.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/length.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/lower.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/match.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/replace.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/split.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/strip.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/truncate.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/unescape.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/mods/upper.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/operators.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/readme.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/start.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/syntax.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/autoescape.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/autotrim.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/cycle.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/do.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/extends.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/filter.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/for.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/foreach.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/if.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/ignore.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/include.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/macro.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/raw.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/set.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/switch.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/docs/ru/tags/unset.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/license.md" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/phpunit.xml.dist" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/fenom.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/blocks/body.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/blocks/main.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/blocks/root.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/blocks/second.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/bug158/main.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/bug158/test.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/bug215/favicon.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/bug215/index.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/bug241/recursive.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/bug247/base.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/bug247/home.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/bug249/bread.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/footer.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/greeting.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/header.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/layout.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/sandbox/templates/macros.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Accessor.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Compiler.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Error/CompileException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Error/InvalidUsageException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Error/SecurityException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Error/TokenizeException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Error/UnexpectedTokenException.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Modifier.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Provider.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/ProviderInterface.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/RangeIterator.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Render.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Tag.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Template.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/src/Fenom/Tokenizer.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/TestCase.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/autoload.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/AccessorTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/AutoEscapeTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/CommentTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/CustomProviderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/ExtendsTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/FunctionsTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/MacrosTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/ModifiersTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/ProviderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/RenderTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/SandboxTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/ScopeTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/TagOptionTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/TagsTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/TemplateTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/Fenom/TokenizerTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/cases/FenomTest.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/actions.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/compile/.gitkeep" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/blocks.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/child.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/auto/child.1.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/auto/child.2.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/auto/child.3.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/auto/parent.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/auto/static/child.1.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/auto/use.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/dynamic/child.1.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/dynamic/child.2.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/dynamic/child.3.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/dynamic/child.4.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/dynamic/parent.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/dynamic/use.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/static/auto/child.3.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/static/child.1.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/static/child.2.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/static/child.3.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/static/nested/child.1.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/static/nested/parent.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/static/parent.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/extends/static/use.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/include.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/macros.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/parent.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/pipe.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/use/blocks.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/use/child.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/resources/provider/use/parent.tpl" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/vendor/fenom/fenom/tests/tools.php" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Moderka.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Controllers/Moderka.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Landing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Controllers/Landing.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1659">
+              <caret line="79" column="34" lean-forward="false" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="landing.tpl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/landing.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="53" column="52" lean-forward="false" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>u0418104</find>
+    </findStrings>
+    <dirStrings>
+      <dir>C:\dev\projects\kraimbrery.local</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="51" />
+    <option name="y" value="-14" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="kraimbrery.local" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kraimbrery.local" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="kraimbrery.local" type="b2602c69:ProjectViewProjectNode" />
+              <item name="kraimbrery.local" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="C:/Program Files/nodejs/node" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="478f99b0-e469-4865-a2c0-ab817f8a7d7a" name="Default" comment="" />
+      <created>1518066044638</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1518066044638</updated>
+      <workItem from="1518066045914" duration="1243000" />
+      <workItem from="1518087923811" duration="208000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1451000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39784947" sideWeight="0.50253487" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31451613" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3360215" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3771739" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22075869" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18335089" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16223067" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32173914" sideWeight="0.4949303" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1913815" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39731544" sideWeight="0.49746513" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953104" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39919356" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3266129" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Gulp" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16920152" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4032258" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24968314" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/afi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/Moderka.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/Landing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1659">
+          <caret line="79" column="34" lean-forward="true" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/landing.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1008">
+          <caret line="48" column="55" lean-forward="false" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/Router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/Moderka.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controllers/Landing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1659">
+          <caret line="79" column="34" lean-forward="false" selection-start-line="79" selection-start-column="34" selection-end-line="79" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/landing.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="53" column="52" lean-forward="false" selection-start-line="53" selection-start-column="52" selection-end-line="53" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/afi.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/moderka/templates/layout.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploads/photo/01.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploads/photo/02.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="54" lean-forward="false" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
