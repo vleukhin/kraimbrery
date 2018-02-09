@@ -92,6 +92,8 @@ class Moderka
     public function ImgAction($type, $action = '', $file = '')
     {
         if (in_array($type, array('slider', 'photo'))) {
+            $slides = require (dirname(__FILE__).'/../slider.php');
+
             $msg_error = '';
             $path = dirname(__FILE__).'/../../uploads/'.$type.'/';
             if ($action == 'del') {
@@ -99,8 +101,9 @@ class Moderka
                 if (file_exists($path.$file) && is_file($path.$file)) {
                     unlink($path.$file);
                 }
-                header('location: /moderka/img/'.$type.'/');
-                exit();
+                unset($slides['$file']);
+                $this->saveSlides($slides);
+
             } elseif ($action == 'add' && !empty($_FILES[$type]['name'][0])) {
 
                 $upload = $this->uploadFiles(
@@ -110,6 +113,14 @@ class Moderka
                 if (!empty($upload['errors'])) {
                     $msg_error = implode('<br>', $upload['errors']);
                 }
+                $this->saveSlides($slides);
+
+            }
+            elseif($action == 'save'){
+                if (!empty($_POST['image']) and !empty($_POST['link'])){
+                    $slides[$_POST['image']] = $_POST['link'];
+                }
+                $this->saveSlides($slides);
             }
 
             $vars = array(
@@ -119,7 +130,10 @@ class Moderka
             $dir = opendir($path);
             while (false !== ($element = readdir($dir))) {
                 if ($element != '.' AND $element != '..') {
-                    $vars['list'][] = $element;
+                    $vars['list'][] = [
+                        'image' => $element,
+                        'link'  => $slides[basename($element)] ?? '',
+                    ];
                 }
             }
             $this->fenom->display($type.'.tpl', $vars);
@@ -127,6 +141,18 @@ class Moderka
             Error::runStatic()->E404Action();
         }
     }
+
+    protected function saveSlides($slides)
+    {
+        file_put_contents(
+            dirname(__FILE__).'/../slider.php',
+            '<? '.PHP_EOL.' return '.var_export($slides, true).';'
+        );
+
+        header('location: /moderka/img/slider/');
+        exit();
+    }
+
 
     public function MainAction()
     {

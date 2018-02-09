@@ -16,7 +16,7 @@
         <div class="form-group row">
             <div class="col-12">
                 <label for="slider" class="custom-file">
-                    Изображения размером 980x600px
+                    Выберите изображение
                     <input type="file" class="form-control" multiple="multiple"  name="slider[]" id="slider" accept=".png,.jpg,.jpeg">
                 </label>
             </div>
@@ -39,9 +39,16 @@
         {foreach $list as $key => $row}
             <tr>
                 <th scope="row">{$key+1}</th>
-                <td><img src="/uploads/slider/{$row}" alt="" height="200px"></td>
+                <td><img src="/uploads/slider/{$row['image']}" alt="" height="200px"><br>
+                    <div>Ссылка:</div>
+                    <form action="/moderka/img/slider/save" method="POST">
+                    <input name="link" type="text" class="form-control pull-left" style="max-width: 60%" value="{$row['link']}">
+                    <input type="hidden" name="image" value="{$row['image']}">
+                    <button class="btn btn-primary pull-left"><i class="fa-fa-save"></i> сохранить</button>
+                    </form>
+                </td>
                 <td class="text-right">
-                    <a href="/moderka/img/slider/del/{$row}" title="Удалить"><i class="fa fa-times" aria-hidden="true" style="color: #e60000"></i></a>
+                    <a href="/moderka/img/slider/del/{$row['image']}" title="Удалить"><i class="fa fa-times" aria-hidden="true" style="color: #e60000"></i></a>
                 </td>
             </tr>
             {foreachelse}
