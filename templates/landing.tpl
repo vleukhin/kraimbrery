@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Мари Краймбрери</title>
-    <link rel="stylesheet" href="/templates/css/main.min.css">
+    <link rel="stylesheet" href="/templates/css/main.css">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"/>
 </head>
@@ -32,15 +32,6 @@
     <a href="{$mari_soc.facebook}" target="_blank" class="fa fa-facebook" aria-hidden="true"></a>{/if}
 </div>
 <div class="gradient">
-    <div class="carousel-box">
-        <div class="slider-01 owl-carousel owl-theme">
-            {foreach $slider as $key => $row}
-                <img src="/uploads/slider-top/{$row}" alt="">
-            {/foreach}
-        </div>
-    </div>
-</div>
-<div class="gradient">
     <div class="neon-line" id="who">Кто она</div>
     <div class="text-info color-yellow">
         {if $who_is_she_img}
@@ -58,7 +49,7 @@
         <div class="btn btn-photo color-yellow">Фотогалерея</div>
         <div class="slider-02 owl-carousel owl-theme">
             {foreach $slider as $key => $row}
-                <img src="/uploads/photo/{$row}" alt="">
+                <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
             {/foreach}
         </div>
         <div class="youtube-video">
@@ -188,6 +179,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/templates/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-<script src="/templates/js/main.min.js"></script>
+<script src="/templates/js/main.js"></script>
 </body>
 </html>

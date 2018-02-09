@@ -6605,15 +6605,6 @@ $(document).ready(function () {
         }*/
     })();
 
-    $('.owl-carousel').owlCarousel({
-        items: 1,
-        autoHeight: true,
-        dots: false,
-        nav: true,
-        loop: true,
-        navText: '',
-        autoplay: true
-    });
     $('.slider-02').owlCarousel({
         responsiveClass: true,
         responsive: {
