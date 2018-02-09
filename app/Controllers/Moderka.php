@@ -117,7 +117,7 @@ class Moderka
 
             }
             elseif($action == 'save'){
-                if (!empty($_POST['image']) and !empty($_POST['link'])){
+                if (!empty($_POST['image']) and isset($_POST['link'])){
                     $slides[$_POST['image']] = $_POST['link'];
                 }
                 $this->saveSlides($slides);

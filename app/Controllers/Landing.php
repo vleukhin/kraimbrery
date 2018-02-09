@@ -40,6 +40,7 @@ class Landing
         $afi_vars = require($afi);
         $vars = array(
             'slider' => $this->getImg($path.'slider/'),
+            'slides' => require dirname(__FILE__).'/../slider.php',
             'photo' => $this->getImg($path.'photo/'),
             'afi' => $afi_vars['list'],
             'mari_soc' => array(

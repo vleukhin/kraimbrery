@@ -49,7 +49,13 @@
         <div class="btn btn-photo color-yellow">Фотогалерея</div>
         <div class="slider-02 owl-carousel owl-theme">
             {foreach $slider as $key => $row}
-                <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
+                {if !empty($slides[$row]) }
+                    <a href="{$slides[$row]}" target="_blank">
+                        <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
+                    </a>
+                {else}
+                    <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
+                {/if}
             {/foreach}
         </div>
         <div class="youtube-video">
