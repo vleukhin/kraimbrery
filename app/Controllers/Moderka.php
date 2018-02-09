@@ -57,7 +57,36 @@ class Moderka
         if (!empty($vars['list'])) {
             uasort($vars['list'], array($this, 'arrSort'));
         }
+
+        $vars['events'] = [];
+
+        foreach ($vars['list'] as $id => $event)
+        {
+            $vars['events'][] = array_merge($event, [
+                'id' => $id,
+            ]);
+        }
+
         $this->fenom->display('afi.tpl', $vars);
+    }
+
+    public function AfiUpdateAction($id)
+    {
+        $file = dirname(__FILE__).'/../afi.php';
+
+        $vars = require(dirname(__FILE__).'/../afi.php');
+
+        $data = @json_decode(file_get_contents('php://input'), true);
+
+        if (isset($vars['list'][$id]) and isset($data['event'])){
+            unset($data['event']['id']);
+            $vars['list'][$id] = $data['event'];
+
+            file_put_contents(
+                $file,
+                '<? '.PHP_EOL.' return '.var_export($vars, true).';'
+            );
+        }
     }
 
     public function ImgAction($type, $action = '', $file = '')
