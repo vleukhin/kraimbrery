@@ -35,6 +35,17 @@
     <a href="{$mari_soc.facebook}" target="_blank" class="fa fa-facebook" aria-hidden="true"></a>{/if}
 </div>
 <div class="gradient">
+    <div class="owl-carousel owl-theme" style="padding: 30px 0">
+        {foreach $photo as $key => $row}
+            {if !empty($photos[$row]) }
+                <a href="{$photos[$row]}" target="_blank">
+                    <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
+                </a>
+            {else}
+                <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
+            {/if}
+        {/foreach}
+    </div>
     <div class="neon-line" id="who">Кто она</div>
     <div class="text-info color-yellow">
         {if $who_is_she_img}

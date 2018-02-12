@@ -106,7 +106,7 @@ class Moderka
         $file = $args['file'] ?? null;
 
         if (in_array($type, ['slider', 'photo'])) {
-            $slides = require(dirname(__FILE__) . '/../slider.php');
+            $slides = require(dirname(__FILE__) . '/../'.$type.'.php');
 
             $msg_error = '';
             $path = dirname(__FILE__) . '/../../uploads/' . $type . '/';
@@ -117,7 +117,7 @@ class Moderka
                     unlink($path . $file);
                 }
                 unset($slides['$file']);
-                $this->saveSlides($slides);
+                $this->saveSlides($slides, $type);
 
             } elseif ($action == 'add' && !empty($_FILES[$type]['name'][0])) {
 
@@ -128,13 +128,13 @@ class Moderka
                 if (!empty($upload['errors'])) {
                     $msg_error = implode('<br>', $upload['errors']);
                 }
-                $this->saveSlides($slides);
+                $this->saveSlides($slides, $type);
 
             } elseif ($action == 'save') {
                 if (!empty($_POST['image']) and isset($_POST['link'])) {
                     $slides[$_POST['image']] = $_POST['link'];
                 }
-                $this->saveSlides($slides);
+                $this->saveSlides($slides, $type);
             }
 
             $vars = [
@@ -158,14 +158,14 @@ class Moderka
         return $response;
     }
 
-    protected function saveSlides($slides)
+    protected function saveSlides($slides, $type)
     {
         file_put_contents(
-            dirname(__FILE__) . '/../slider.php',
+            dirname(__FILE__) . '/../'.$type.'.php',
             '<? ' . PHP_EOL . ' return ' . var_export($slides, true) . ';'
         );
 
-        header('location: /moderka/img/slider/');
+        header('location: /moderka/img/'.$type.'/');
         exit();
     }
 

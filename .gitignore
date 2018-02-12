@@ -5,4 +5,5 @@
 app/afi.php
 app/config.php
 app/slider.php
+app/photo.php
 uploads
