@@ -21,7 +21,7 @@
                     <img src="/uploads/news/{{ news.image }}" alt="">
                 </a>
             {% endif %}
-            <div class="intro-text">{{ news.text }}</div>
+            <div class="intro-text">{{ news.text|raw }}</div>
         </div>
     </div>
 

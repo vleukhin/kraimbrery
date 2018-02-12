@@ -23,7 +23,7 @@
                             <img src="/uploads/news/{{ news.image }}" alt="">
                         </a>
                     {% endif %}
-                    <div class="intro-text">{{ news.text }}</div>
+                    <div class="intro-text">{{ news.text|raw }}</div>
                 </div>
                 <a href="{{ news.url }}" class="btn color-yellow last-news__link">Подробней</a>
             </div>
