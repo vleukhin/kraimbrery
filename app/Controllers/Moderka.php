@@ -15,7 +15,7 @@ class Moderka
     {
         $this->config = Config::setting()->get();
         $this->fenom = new Fenom(new Fenom\Provider($this->config['template_dir_moderka']));
-        $this->fenom->setCompileDir($this->config['template_cache_moderka']);
+        $this->fenom->setCompileDir($this->config['template_cache']);
         $options['disable_cache'] = true;
         $this->fenom->setOptions($options);
     }
