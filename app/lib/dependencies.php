@@ -22,6 +22,7 @@ $container['view'] = function ($c) {
         $c['router'],
         $c['request']->getUri()
     ));
+
     return $view;
 };
 

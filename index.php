@@ -32,4 +32,6 @@ $app->post('/moderka/afiUpdate/{id}', App\Controllers\Moderka::class .':AfiUpdat
 
 $app->any('/moderka/img[/{type}[/{action}[/{file}]]]', App\Controllers\Moderka::class .':ImgAction');
 
+$app->get('/moderka/news', App\Controllers\NewsController::class .':adminList');
+
 $app->run();
