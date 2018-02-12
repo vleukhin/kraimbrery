@@ -15,6 +15,9 @@
         <img class="burger" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA2klEQVR4Xu2ZsQ2AQAwD+ZYxWIv5WIsxaGEDXKSyfbTRS7FzSRSxtvJvlevfMAACyh2gBcoBYAjSArRAuQO0QDkAbAHZAs99vs6U7Mf1qxEDVHUhoL0FFCHucTkD3AWq/DFAOZQeh4D0Cit9EKAcSo9DQHqFlT4IUA6lxyUBXIPt1yAEtBNQPwQxINwBuQbD9fNjBALSEVf6IEA5lB6HgPQKK30QoBziGmy/BiGgnQA1I9zjbAH3Ck7zh4Cpg+7vIcC9gtP8IWDqoPt7CHCv4DR/CJg66P6+noAPAdcwQYCZJXoAAAAASUVORK5CYII=">
         <ul class="menu">
             <li><a href="#who">Кто она</a></li>
+            {if $last_news}
+            <li><a href="#news">Новости</a></li>
+            {/if}
             <li><a href="#look">Посмотри на неё</a></li>
             <li><a href="#weapons">Её главное оружие</a></li>
             <li><a href="#events">Туси с ней</a></li>
@@ -44,6 +47,23 @@
             <div class="full-text">{$who_is_she_full}</div>{/if}
         <div class="btn btn-text">Читать далее</div>
     </div>
+    {if $last_news}
+    <div id="news">
+        <div class="neon-line">Новости</div>
+
+        <div class="last-news text-info color-yellow">
+            <h1>{$last_news.title}</h1>
+            {if $last_news.image}
+                <a href="{$last_news.url}">
+                    <img src="/uploads/news/{$last_news.image}" alt="">
+                </a>
+            {/if}
+            <div class="intro-text">{$last_news.teaser}</div>
+            <a href="{$last_news.url}" class="btn btn-photo color-yellow last-news__link">Подробней</a>
+        </div>
+    </div>
+    {/if}
+
     <div class="neon-line" id="look">Посмотри на неё</div>
     <div class="carousel-box">
         <div class="btn btn-photo color-yellow">Фотогалерея</div>

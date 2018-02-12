@@ -21,6 +21,12 @@ class News extends Model
         'title',
         'image',
         'text',
+        'teaser',
         'url',
     ];
+
+    public function getUrlAttribute()
+    {
+        return sprintf('/news-%s-%s', $this->id, $this->attributes['url']);
+    }
 }

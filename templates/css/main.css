@@ -4574,3 +4574,19 @@ nav {
         margin: 0 20px;
     }
 }
+
+.last-news img{
+    width: 100%;
+    max-width: 500px;
+}
+.last-news h1{
+    line-height: 40px;
+}
+.last-news .intro-text{
+    font-size: 22px;
+    margin-top: 30px;
+}
+.last-news__link{
+    margin-top: 30px;
+    display: block;
+}
