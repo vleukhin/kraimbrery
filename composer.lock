@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe2ecf0555454dd36e7913adb4c8da6d",
+    "content-hash": "f49096a8091d9bd7eb73923dd51f239e",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -106,16 +106,16 @@
         },
         {
             "name": "fenom/fenom",
-            "version": "2.11.6",
+            "version": "2.11.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fenom-template/fenom.git",
-                "reference": "7d0db43050122d56ec3fb76700f07bad8fc10a91"
+                "reference": "2d968ab8d07791eefc5ada419b13fa884cd0d21b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fenom-template/fenom/zipball/7d0db43050122d56ec3fb76700f07bad8fc10a91",
-                "reference": "7d0db43050122d56ec3fb76700f07bad8fc10a91",
+                "url": "https://api.github.com/repos/fenom-template/fenom/zipball/2d968ab8d07791eefc5ada419b13fa884cd0d21b",
+                "reference": "2d968ab8d07791eefc5ada419b13fa884cd0d21b",
                 "shasum": ""
             },
             "require": {
@@ -152,7 +152,7 @@
                 "templater",
                 "templating"
             ],
-            "time": "2017-04-22T19:48:52+00:00"
+            "time": "2017-06-29T10:49:38+00:00"
         },
         {
             "name": "illuminate/container",
