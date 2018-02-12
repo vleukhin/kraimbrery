@@ -59,7 +59,7 @@
                 </a>
             {/if}
             <div class="intro-text">{$last_news.teaser}</div>
-            <a href="{$last_news.url}" class="btn btn-photo color-yellow last-news__link">Подробней</a>
+            <a href="{$last_news.url}" class="btn color-yellow last-news__link">Подробней</a>
         </div>
     </div>
     {/if}
