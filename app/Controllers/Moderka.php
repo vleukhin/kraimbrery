@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use \Fenom;
+use Slim\Http\Request;
+use Slim\Http\Response;
 
 class Moderka
 {
@@ -27,8 +29,11 @@ class Moderka
         return $a['date'] > $b['date'] ? 1 : -1;
     }
 
-    public function AfiAction($action = '', $id = '')
+    public function AfiAction(Request $request, Response $response, array $args)
     {
+        $action = $args['action'] ?? null;
+        $id = $args['id'] ?? null;
+
         $afi = dirname(__FILE__).'/../afi.php';
         $vars = require($afi);
         if ($action == 'add' && !empty($_POST['c'])) {
@@ -70,8 +75,10 @@ class Moderka
         $this->fenom->display('afi.tpl', $vars);
     }
 
-    public function AfiUpdateAction($id)
+    public function AfiUpdateAction(Request $request, Response $response, array $args)
     {
+        extract($args);
+
         $file = dirname(__FILE__).'/../afi.php';
 
         $vars = require(dirname(__FILE__).'/../afi.php');

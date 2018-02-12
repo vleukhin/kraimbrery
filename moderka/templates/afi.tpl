@@ -30,7 +30,7 @@
         </div>
         <div class="form-group row">
             <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary">Добавить</button>
+                <button type="submit" class="btn btn-primary" v-if="!editing">Добавить</button>
                 <button type="button" class="btn btn-warning" v-if="editing" v-on:click="save()">Сохранить</button>
                 <button type="button" class="btn btn-default" v-if="editing" v-on:click="cancel()">Отмена</button>
             </div>
