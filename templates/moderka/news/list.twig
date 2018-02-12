@@ -21,7 +21,7 @@
                 <td>
                     <form action="/moderka/news/{{ item.id }}/delete" method="post">
                         <a class="btn btn-primary" href="/moderka/news/{{ item.id }}/edit"> <i class="fa fa-edit"></i></a>
-                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-danger" onclick="return confirm('Вы уверены, что хотите удалить новость?')"><i class="fa fa-trash"></i></button>
                     </form>
                 </td>
             </tr>

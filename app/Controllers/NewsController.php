@@ -100,4 +100,21 @@ class NewsController
 
         return $response->withRedirect('/moderka/news');
     }
+
+    public function delete(Request $request, Response $response, $args)
+    {
+        $news = News::find($args['id']);
+
+        if (!$news){
+            return $response->withStatus(404);
+        }
+
+        $news->delete();
+
+        if ($news->image){
+            unlink($this->upload_dir . '/' . $news->image);
+        }
+
+        return $response->withRedirect('/moderka/news');
+    }
 }

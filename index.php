@@ -37,5 +37,7 @@ $app->get('/moderka/news/create', App\Controllers\NewsController::class .':creat
 $app->post('/moderka/news/create', App\Controllers\NewsController::class .':store');
 $app->get('/moderka/news/{id}/edit', App\Controllers\NewsController::class .':edit');
 $app->post('/moderka/news/{id}/update', App\Controllers\NewsController::class .':update');
+$app->post('/moderka/news/{id}/delete', App\Controllers\NewsController::class .':delete');
+
 
 $app->run();
