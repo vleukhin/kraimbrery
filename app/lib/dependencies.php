@@ -16,6 +16,15 @@ $capsule->getContainer()->singleton(
     App\ExceptionsHandler::class
 );
 
+$container['view'] = function ($c) {
+    $view = new \Slim\Views\Twig('./templates/');
+    $view->addExtension(new \Slim\Views\TwigExtension(
+        $c['router'],
+        $c['request']->getUri()
+    ));
+    return $view;
+};
+
 $container['notFoundHandler'] = function ($c) {
     return function ($request, $response) use ($c) {
         return $c['view']->render($response->withStatus(404), 'error/404.html');
