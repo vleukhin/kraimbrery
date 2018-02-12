@@ -22,6 +22,7 @@ class ComposerStaticInit9b170a9501987e34595639ae95f55800
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Translation\\' => 30,
             'Slim\\Views\\' => 11,
+            'Slim\\Middleware\\' => 16,
             'Slim\\' => 5,
         ),
         'P' => 
@@ -73,6 +74,10 @@ class ComposerStaticInit9b170a9501987e34595639ae95f55800
         'Slim\\Views\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/twig-view/src',
+        ),
+        'Slim\\Middleware\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tuupola/slim-basic-auth/src',
         ),
         'Slim\\' => 
         array (

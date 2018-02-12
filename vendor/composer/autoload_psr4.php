@@ -10,6 +10,7 @@ return array(
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Translation\\' => array($vendorDir . '/symfony/translation'),
     'Slim\\Views\\' => array($vendorDir . '/slim/twig-view/src'),
+    'Slim\\Middleware\\' => array($vendorDir . '/tuupola/slim-basic-auth/src'),
     'Slim\\' => array($vendorDir . '/slim/slim/Slim'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),

@@ -14,6 +14,15 @@ $container = $app->getContainer();
 
 require './app/lib/dependencies.php';
 
+$app->add(new \Slim\Middleware\HttpBasicAuthentication([
+    'path'  => '/moderka',
+    'realm' => 'Protected',
+    'secure' => false,
+    'users' => [
+        getenv('ADMIN_NAME') => getenv('ADMIN_PASS'),
+    ],
+]));
+
 $app->get('/', App\Controllers\Landing::class .':MainAction');
 
 $app->run();
