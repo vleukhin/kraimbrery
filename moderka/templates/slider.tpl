@@ -12,7 +12,7 @@
         <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a>{$msg_success}
         </div>
     {/if}
-    <form action="/moderka/img/slider/add/" method="post" enctype="multipart/form-data">
+    <form action="/moderka/img/slider/add" method="post" enctype="multipart/form-data">
         <div class="form-group row">
             <div class="col-12">
                 <label for="slider" class="custom-file">

@@ -12,7 +12,7 @@
         <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a>{$msg_success}
         </div>
     {/if}
-    <form action="/moderka/img/photo/add/" method="post" enctype="multipart/form-data">
+    <form action="/moderka/img/photo/add" method="post" enctype="multipart/form-data">
         <div class="form-group row">
             <div class="col-12">
                 <label for="photo" class="custom-file">
@@ -39,9 +39,9 @@
         {foreach $list as $key => $row}
             <tr>
                 <th scope="row">{$key+1}</th>
-                <td><img src="/uploads/photo/{$row}" alt="" height="200px"></td>
+                <td><img src="/uploads/photo/{$row['image']}" alt="" height="200px"></td>
                 <td class="text-right">
-                    <a href="/moderka/img/photo/del/{$row}" title="Удалить"><i class="fa fa-times" aria-hidden="true" style="color: #e60000"></i></a>
+                    <a href="/moderka/img/photo/del/{$row['image']}" title="Удалить"><i class="fa fa-times" aria-hidden="true" style="color: #e60000"></i></a>
                 </td>
             </tr>
             {foreachelse}

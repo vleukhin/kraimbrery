@@ -26,8 +26,10 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication([
 $app->get('/', App\Controllers\Landing::class .':MainAction');
 
 $app->any('/moderka', App\Controllers\Moderka::class .':MainAction');
+
 $app->any('/moderka/afi[/{action}[/{id}]]', App\Controllers\Moderka::class .':AfiAction');
 $app->post('/moderka/afiUpdate/{id}', App\Controllers\Moderka::class .':AfiUpdateAction');
-//$app->get('/', App\Controllers\Landing::class .':MainAction');
+
+$app->any('/moderka/img[/{type}[/{action}[/{file}]]]', App\Controllers\Moderka::class .':ImgAction');
 
 $app->run();

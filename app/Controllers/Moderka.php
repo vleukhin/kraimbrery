@@ -99,13 +99,18 @@ class Moderka
         }
     }
 
-    public function ImgAction($type, $action = '', $file = '')
+    public function ImgAction(Request $request, Response $response, array $args)
     {
+        $type = $args['type'] ?? null;
+        $action = $args['action'] ?? null;
+        $file = $args['file'] ?? null;
+
         if (in_array($type, ['slider', 'photo'])) {
             $slides = require(dirname(__FILE__) . '/../slider.php');
 
             $msg_error = '';
             $path = dirname(__FILE__) . '/../../uploads/' . $type . '/';
+
             if ($action == 'del') {
                 $file = str_replace('..', '', $file);
                 if (file_exists($path . $file) && is_file($path . $file)) {
@@ -149,6 +154,8 @@ class Moderka
         } else {
             Error::runStatic()->E404Action();
         }
+
+        return $response;
     }
 
     protected function saveSlides($slides)
