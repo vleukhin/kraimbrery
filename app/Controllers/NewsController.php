@@ -20,6 +20,8 @@ class NewsController
      */
     protected $twig;
 
+    protected $upload_dir = APP_ROOT . '/uploads/news';
+
     public function __construct($container)
     {
         $this->container = $container;
@@ -45,6 +47,15 @@ class NewsController
         $news = new News($request->getParsedBody());
 
         $news->url = translit($news->title);
+
+        $uploadedFiles = $request->getUploadedFiles();
+
+        // handle single input with single file upload
+        $uploadedFile = $uploadedFiles['image'] ?? null;
+
+        if ($uploadedFile and $uploadedFile->getError() === UPLOAD_ERR_OK) {
+            $news->image = moveUploadedFile($this->upload_dir, $uploadedFile);
+        }
 
         $news->save();
 
