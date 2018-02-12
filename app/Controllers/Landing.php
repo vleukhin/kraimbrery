@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\News;
 use \Fenom;
 
 class Landing
@@ -39,6 +40,7 @@ class Landing
         $afi = dirname(__FILE__).'/../afi.php';
         $afi_vars = require($afi);
         $vars = array(
+            'last_news' => News::orderBy('created_at', 'desc')->first(),
             'slider' => $this->getImg($path.'slider/'),
             'slides' => require dirname(__FILE__).'/../slider.php',
             'photo' => $this->getImg($path.'photo/'),

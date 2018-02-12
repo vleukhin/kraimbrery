@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Мари Краймбрери</title>
+    <link rel="stylesheet" href="/templates/css/main.css">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"/>
+</head>
+<body>
+<div class="news-page">
+    <div class="gradient">
+        <div class="neon-line"><span>Новости</span></div>
+    </div>
+    <div class="gradient content">
+        <div class="last-news text-info color-yellow">
+            <h1>{{ news.title }}</h1>
+            {% if news.image %}
+                <a href="{{ news.url }}">
+                    <img src="/uploads/news/{{ news.image }}" alt="">
+                </a>
+            {% endif %}
+            <div class="intro-text">{{ news.text|raw }}</div>
+        </div>
+    </div>
+
+    <div class="yellow-block">
+        <a href="/news" class="btn" style="border: 2px solid #352c86;padding: 20px">Назад</a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/templates/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+<script src="/templates/js/main.js"></script>
+</body>
+</html>

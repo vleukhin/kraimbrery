@@ -1,18 +1,46 @@
 <?php
-session_start();
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+require_once './vendor/autoload.php';
 
 define('APP_ROOT', __DIR__);
 
-require_once dirname(__FILE__).'/vendor/autoload.php';
+$dotenv = new Dotenv\Dotenv('./');
+$dotenv->load();
 
-use App\Controllers as Controllers;
+$config = require './config/app.php';
 
-$routes = array(
-    '/' => 'Landing/MainAction',
-    '/:any' => 'Error/E404Action',
-);
-Controllers\Router::addRoute($routes);
-Controllers\Router::dispatch();
+$app = new \Slim\App(['settings' => $config]);
+
+$container = $app->getContainer();
+
+require './app/lib/dependencies.php';
+
+$app->add(new \Slim\Middleware\HttpBasicAuthentication([
+    'path'  => '/moderka',
+    'realm' => 'Protected',
+    'secure' => false,
+    'users' => [
+        getenv('ADMIN_NAME') => getenv('ADMIN_PASS'),
+    ],
+]));
+
+$app->get('/', App\Controllers\Landing::class .':MainAction');
+
+$app->get('/news-{id}-{url}', App\Controllers\NewsController::class .':show');
+$app->get('/news', App\Controllers\NewsController::class .':list');
+
+$app->any('/moderka', App\Controllers\Moderka::class .':MainAction');
+
+$app->any('/moderka/afi[/{action}[/{id}]]', App\Controllers\Moderka::class .':AfiAction');
+$app->post('/moderka/afiUpdate/{id}', App\Controllers\Moderka::class .':AfiUpdateAction');
+
+$app->any('/moderka/img[/{type}[/{action}[/{file}]]]', App\Controllers\Moderka::class .':ImgAction');
+
+$app->get('/moderka/news', App\Controllers\NewsController::class .':adminList');
+$app->get('/moderka/news/create', App\Controllers\NewsController::class .':create');
+$app->post('/moderka/news/create', App\Controllers\NewsController::class .':store');
+$app->get('/moderka/news/{id}/edit', App\Controllers\NewsController::class .':edit');
+$app->post('/moderka/news/{id}/update', App\Controllers\NewsController::class .':update');
+$app->post('/moderka/news/{id}/delete', App\Controllers\NewsController::class .':delete');
+
+
+$app->run();

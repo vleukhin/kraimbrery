@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use \Fenom;
+use Slim\Http\Request;
+use Slim\Http\Response;
 
 class Moderka
 {
@@ -13,7 +15,7 @@ class Moderka
     {
         $this->config = Config::setting()->get();
         $this->fenom = new Fenom(new Fenom\Provider($this->config['template_dir_moderka']));
-        $this->fenom->setCompileDir($this->config['template_cache_moderka']);
+        $this->fenom->setCompileDir($this->config['template_cache']);
         $options['disable_cache'] = true;
         $this->fenom->setOptions($options);
     }
@@ -27,41 +29,43 @@ class Moderka
         return $a['date'] > $b['date'] ? 1 : -1;
     }
 
-    public function AfiAction($action = '', $id = '')
+    public function AfiAction(Request $request, Response $response, array $args)
     {
-        $afi = dirname(__FILE__).'/../afi.php';
+        $action = $args['action'] ?? null;
+        $id = $args['id'] ?? null;
+
+        $afi = dirname(__FILE__) . '/../afi.php';
         $vars = require($afi);
-        if ($action == 'add' && !empty($_POST['c'])) {
-            $add_afi = $_POST['c'];
+        if ($action == 'add') {
+            $add_afi = $_POST['c'] ?? null;
             if (is_array($add_afi)) {
                 foreach ($add_afi as $k => $item) {
                     $add_afi[$k] = trim($item);
                 }
-                $vars['list']['id_'.str_replace('.', '', microtime(true))] = $add_afi;
+                $vars['list']['id_' . str_replace('.', '', microtime(true))] = $add_afi;
                 file_put_contents(
                     $afi,
-                    '<? '.PHP_EOL.' return '.var_export($vars, true).';'
+                    '<? ' . PHP_EOL . ' return ' . var_export($vars, true) . ';'
                 );
             }
-            header('location: /moderka/afi/');
-            exit();
+
+            return $response->withRedirect('/moderka/afi');
         } elseif ($action == 'del' && isset($id) && !empty($vars['list'])) {
             unset($vars['list'][$id]);
             file_put_contents(
                 $afi,
-                '<? '.PHP_EOL.' return '.var_export($vars, true).';'
+                '<? ' . PHP_EOL . ' return ' . var_export($vars, true) . ';'
             );
-            header('location: /moderka/afi/');
-            exit();
+
+            return $response->withRedirect('/moderka/afi');
         }
         if (!empty($vars['list'])) {
-            uasort($vars['list'], array($this, 'arrSort'));
+            uasort($vars['list'], [$this, 'arrSort']);
         }
 
         $vars['events'] = [];
 
-        foreach ($vars['list'] as $id => $event)
-        {
+        foreach ($vars['list'] as $id => $event) {
             $vars['events'][] = array_merge($event, [
                 'id' => $id,
             ]);
@@ -70,36 +74,47 @@ class Moderka
         $this->fenom->display('afi.tpl', $vars);
     }
 
-    public function AfiUpdateAction($id)
+    public function AfiUpdateAction(Request $request, Response $response, array $args)
     {
-        $file = dirname(__FILE__).'/../afi.php';
+        $id = $args['id'] ?? null;
 
-        $vars = require(dirname(__FILE__).'/../afi.php');
+        if (is_null($id)){
+            return $response->withStatus(404);
+        }
+
+        $file = dirname(__FILE__) . '/../afi.php';
+
+        $vars = require(dirname(__FILE__) . '/../afi.php');
 
         $data = @json_decode(file_get_contents('php://input'), true);
 
-        if (isset($vars['list'][$id]) and isset($data['event'])){
+        if (isset($vars['list'][$id]) and isset($data['event'])) {
             unset($data['event']['id']);
             $vars['list'][$id] = $data['event'];
 
             file_put_contents(
                 $file,
-                '<? '.PHP_EOL.' return '.var_export($vars, true).';'
+                '<? ' . PHP_EOL . ' return ' . var_export($vars, true) . ';'
             );
         }
     }
 
-    public function ImgAction($type, $action = '', $file = '')
+    public function ImgAction(Request $request, Response $response, array $args)
     {
-        if (in_array($type, array('slider', 'photo'))) {
-            $slides = require (dirname(__FILE__).'/../slider.php');
+        $type = $args['type'] ?? null;
+        $action = $args['action'] ?? null;
+        $file = $args['file'] ?? null;
+
+        if (in_array($type, ['slider', 'photo'])) {
+            $slides = require(dirname(__FILE__) . '/../slider.php');
 
             $msg_error = '';
-            $path = dirname(__FILE__).'/../../uploads/'.$type.'/';
+            $path = dirname(__FILE__) . '/../../uploads/' . $type . '/';
+
             if ($action == 'del') {
                 $file = str_replace('..', '', $file);
-                if (file_exists($path.$file) && is_file($path.$file)) {
-                    unlink($path.$file);
+                if (file_exists($path . $file) && is_file($path . $file)) {
+                    unlink($path . $file);
                 }
                 unset($slides['$file']);
                 $this->saveSlides($slides);
@@ -115,18 +130,17 @@ class Moderka
                 }
                 $this->saveSlides($slides);
 
-            }
-            elseif($action == 'save'){
-                if (!empty($_POST['image']) and isset($_POST['link'])){
+            } elseif ($action == 'save') {
+                if (!empty($_POST['image']) and isset($_POST['link'])) {
                     $slides[$_POST['image']] = $_POST['link'];
                 }
                 $this->saveSlides($slides);
             }
 
-            $vars = array(
-                'c' => $this->config,
+            $vars = [
+                'c'         => $this->config,
                 'msg_error' => $msg_error,
-            );
+            ];
             $dir = opendir($path);
             while (false !== ($element = readdir($dir))) {
                 if ($element != '.' AND $element != '..') {
@@ -136,17 +150,19 @@ class Moderka
                     ];
                 }
             }
-            $this->fenom->display($type.'.tpl', $vars);
+            $this->fenom->display($type . '.tpl', $vars);
         } else {
             Error::runStatic()->E404Action();
         }
+
+        return $response;
     }
 
     protected function saveSlides($slides)
     {
         file_put_contents(
-            dirname(__FILE__).'/../slider.php',
-            '<? '.PHP_EOL.' return '.var_export($slides, true).';'
+            dirname(__FILE__) . '/../slider.php',
+            '<? ' . PHP_EOL . ' return ' . var_export($slides, true) . ';'
         );
 
         header('location: /moderka/img/slider/');
@@ -166,7 +182,7 @@ class Moderka
                     $_FILES['who_is_she_img']['name']
                 );
                 if (!empty($upload['file'])) {
-                    $f_path = dirname(__FILE__).'/../..'.$this->config['who_is_she_img'];
+                    $f_path = dirname(__FILE__) . '/../..' . $this->config['who_is_she_img'];
                     if (file_exists($f_path)) {
                         unlink($f_path);
                     }
@@ -180,7 +196,7 @@ class Moderka
                     $_FILES['audio']['name']
                 );
                 if (!empty($upload['file'])) {
-                    $f_path = dirname(__FILE__).'/../..'.$this->config['audio'];
+                    $f_path = dirname(__FILE__) . '/../..' . $this->config['audio'];
                     if (file_exists($f_path)) {
                         unlink($f_path);
                     }
@@ -200,16 +216,16 @@ class Moderka
         foreach ($this->config as $k => $v) {
             $this->config[$k] = htmlspecialchars($this->config[$k]);
         }
-        $vars = array(
+        $vars = [
             'c' => $this->config,
-        );
+        ];
 
         $this->fenom->display('setting.tpl', $vars);
     }
 
     private function uploadFiles($files, $type)
     {
-        $errorMessages = array(
+        $errorMessages = [
             /*UPLOAD_ERR_INI_SIZE*/
             1 => 'Размер файла превысил значение upload_max_filesize в конфигурации PHP.',
             /*UPLOAD_ERR_FORM_SIZE*/
@@ -224,21 +240,21 @@ class Moderka
             6 => 'Не удалось записать файл на диск.',
             /*UPLOAD_ERR_EXTENSION*/
             7 => 'PHP-расширение остановило загрузку файла.',
-        );
+        ];
         $unknownMessage = 'При загрузке файла произошла неизвестная ошибка.';
 
         if (is_array($files['tmp_name'])) {
             $arrFilePath = $files['tmp_name'];
             $errorCode = $files['error'];
-            $result = array(
-                'error' => array(),
+            $result = [
+                'error'    => [],
                 'ok_count' => 0,
-                'count' => count($files['tmp_name']),
-            );
+                'count'    => count($files['tmp_name']),
+            ];
 
             foreach ($arrFilePath as $key => $filePath) {
                 if ($errorCode[$key] != 0 || !is_uploaded_file($filePath)) {
-                    $result['errors'][] = $filePath.' - '.isset($errorMessages[$errorCode[$key]]) ? $errorMessages[$errorCode[$key]] : $unknownMessage;
+                    $result['errors'][] = $filePath . ' - ' . isset($errorMessages[$errorCode[$key]]) ? $errorMessages[$errorCode[$key]] : $unknownMessage;
                 } else {
                     $res = $this->uploadFile($filePath, $type, $files['name'][$key]);
                 }
@@ -251,7 +267,7 @@ class Moderka
             }
         } else {
             if ($files['error'] != 0 || !is_uploaded_file($files['tmp_name'])) {
-                $result['errors'][] = $files['name'].' - '.isset($errorMessages[$errorCode[$files['error']]]) ? $errorMessages[$files['error']] : $unknownMessage;
+                $result['errors'][] = $files['name'] . ' - ' . isset($errorMessages[$errorCode[$files['error']]]) ? $errorMessages[$files['error']] : $unknownMessage;
             } else {
                 $res = $this->uploadFile($files['tmp_name'], $type, $files['name']);
                 $result['file'] = $res['file'];
@@ -269,10 +285,10 @@ class Moderka
             $limitWidth = 980;
             $limitHeight = 600;
             if ($image[1] > $limitHeight) {
-                $result['errors'][] = $o_filename.' - '.'Высота изображения не должна превышать 600 точек.';
+                $result['errors'][] = $o_filename . ' - ' . 'Высота изображения не должна превышать 600 точек.';
             }
             if ($image[0] > $limitWidth) {
-                $result['errors'][] = $o_filename.' - '.'Ширина изображения не должна превышать 980 точек.';
+                $result['errors'][] = $o_filename . ' - ' . 'Ширина изображения не должна превышать 980 точек.';
             }
             $extension = image_type_to_extension($image[2]);
             $format = str_replace('jpeg', 'jpg', $extension);
@@ -282,18 +298,18 @@ class Moderka
         if (!empty($format)) {
             $limitBytes = 1024 * 1024 * 5;
             if (filesize($filePath) > $limitBytes) {
-                $result['errors'][] = $o_filename.' - '.'Размер изображения не должен превышать 5 Мбайт.';
+                $result['errors'][] = $o_filename . ' - ' . 'Размер изображения не должен превышать 5 Мбайт.';
             }
             $name = md5_file($filePath);
 
-            $filename = str_replace('.', '', microtime(true)).$name.$format;
-            if (!move_uploaded_file($filePath, dirname(__FILE__).'/../../uploads/'.$type.'/'.$filename)) {
-                $result['error'] = $o_filename.' - '.'При записи изображения на диск произошла ошибка.';
+            $filename = str_replace('.', '', microtime(true)) . $name . $format;
+            if (!move_uploaded_file($filePath, dirname(__FILE__) . '/../../uploads/' . $type . '/' . $filename)) {
+                $result['error'] = $o_filename . ' - ' . 'При записи изображения на диск произошла ошибка.';
             } else {
-                $result['file'] = '/uploads/'.$type.'/'.$filename;
+                $result['file'] = '/uploads/' . $type . '/' . $filename;
             }
         } else {
-            $result['error'] = $o_filename.' - '.'Не удалосьопределить формат';
+            $result['error'] = $o_filename . ' - ' . 'Не удалосьопределить формат';
         }
 
         return $result;
