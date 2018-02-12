@@ -11,11 +11,6 @@ $capsule->addConnection($container['settings']['db']);
 $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
-$capsule->getContainer()->singleton(
-    Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\ExceptionsHandler::class
-);
-
 $container['view'] = function ($c) {
     $view = new \Slim\Views\Twig('./templates/');
     $view->addExtension(new \Slim\Views\TwigExtension(
