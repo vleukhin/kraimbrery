@@ -1,18 +1,19 @@
 <?php
-require './vendor/autoload.php';
+require_once './vendor/autoload.php';
+
+define('APP_ROOT', __DIR__);
 
 $dotenv = new Dotenv\Dotenv('./');
 $dotenv->load();
 
-define('APP_ROOT', __DIR__);
+$config = require './config/app.php';
 
-require_once dirname(__FILE__).'/vendor/autoload.php';
+$app = new \Slim\App(['settings' => $config]);
 
-use App\Controllers as Controllers;
+$container = $app->getContainer();
 
-$routes = array(
-    '/' => 'Landing/MainAction',
-    '/:any' => 'Error/E404Action',
-);
-Controllers\Router::addRoute($routes);
-Controllers\Router::dispatch();
+require './app/lib/dependencies.php';
+
+$app->get('/', App\Controllers\Landing::class .':MainAction');
+
+$app->run();
