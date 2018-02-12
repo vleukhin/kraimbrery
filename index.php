@@ -25,7 +25,7 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication([
 
 $app->get('/', App\Controllers\Landing::class .':MainAction');
 
-$app->get('/moderka', App\Controllers\Moderka::class .':MainAction');
+$app->any('/moderka', App\Controllers\Moderka::class .':MainAction');
 $app->any('/moderka/afi[/{action}[/{id}]]', App\Controllers\Moderka::class .':AfiAction');
 $app->post('/moderka/afiUpdate/{id}', App\Controllers\Moderka::class .':AfiUpdateAction');
 //$app->get('/', App\Controllers\Landing::class .':MainAction');

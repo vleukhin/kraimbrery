@@ -12,7 +12,7 @@
         <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a>{$msg_success}
         </div>
     {/if}
-    <form action="/moderka/" method="post" enctype="multipart/form-data">
+    <form action="/moderka" method="post" enctype="multipart/form-data">
         <h3>Кто она</h3>
         <div class="form-group row">
             <div class="col-12">
