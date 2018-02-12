@@ -8,18 +8,30 @@
 namespace App\Controllers;
 
 
+use App\Models\News;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Slim\Views\Twig;
 
 class NewsController
 {
+    /**
+     * @var Twig
+     */
+    protected $twig;
+
     public function __construct($container)
     {
         $this->container = $container;
+        $this->twig = $container['view'];
     }
 
     public function adminList(Request $request, Response $response)
     {
-        return $this->container['view']->render($response, 'moderka/news/list.twig');
+        $news = News::all();
+
+        return $this->twig->render($response, 'moderka/news/list.twig', [
+            'news' => $news,
+        ]);
     }
 }
