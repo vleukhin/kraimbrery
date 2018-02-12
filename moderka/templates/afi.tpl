@@ -13,7 +13,7 @@
         <div class="alert alert-success"><a href="#" class="close" data-dismiss="alert">×</a>{$msg_success}
         </div>
     {/if}
-    <form action="/moderka/afi/add/" method="post">
+    <form action="/moderka/afi/add" method="post">
         <div class="form-group row">
             <div class="col-md-4">
                 <label for="f_date">Дата</label>
