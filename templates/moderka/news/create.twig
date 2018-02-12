@@ -1,0 +1,11 @@
+{% extends "moderka/layout.twig" %}
+{% block title %}Новости{% endblock %}
+{% block news %}active{% endblock %}
+
+{% block content %}
+    <h1>Добавление новости</h1>
+
+    <form action="/moderka/news/create" method="post" enctype="multipart/form-data">
+        {% include 'moderka/news/_form.twig' with {'creating': true} %}
+    </form>
+{% endblock %}

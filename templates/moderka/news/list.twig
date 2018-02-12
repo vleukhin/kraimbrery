@@ -4,7 +4,7 @@
 
 {% block content %}
     <h1>Новости</h1>
-    <a class="btn btn-success" href="/moderka/news/add/edit"> <i class="fa fa-plus-circle"></i> Создать</a><br><br>
+    <a class="btn btn-success" href="/moderka/news/create"> <i class="fa fa-plus-circle"></i> Создать</a><br><br>
 
     <table class="table">
         <tr>
@@ -14,15 +14,17 @@
             <th>Действия</th>
         </tr>
         {% for item in news %}
-            <td>{{ item.id }}</td>
-            <td>{{ item.title }}</td>
-            <td>{{ item.created_at }}</td>
-            <td>
-                <form action="/moderka/news/{{ item.id }}/delete" method="post">
-                    <a class="btn btn-primary" href="/moderka/news/{{ item.id }}/edit"> <i class="fa fa-edit"></i></a>
-                    <button class="btn btn-danger"> <i class="fa fa-trash"></i></button>
-                </form>
-            </td>
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.created_at }}</td>
+                <td>
+                    <form action="/moderka/news/{{ item.id }}/delete" method="post">
+                        <a class="btn btn-primary" href="/moderka/news/{{ item.id }}/edit"> <i class="fa fa-edit"></i></a>
+                        <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                    </form>
+                </td>
+            </tr>
         {% endfor %}
     </table>
 {% endblock %}

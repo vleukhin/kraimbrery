@@ -34,4 +34,20 @@ class NewsController
             'news' => $news,
         ]);
     }
+
+    public function create(Request $request, Response $response)
+    {
+        return $this->twig->render($response, 'moderka/news/create.twig');
+    }
+
+    public function store(Request $request, Response $response)
+    {
+        $news = new News($request->getParsedBody());
+
+        $news->url = translit($news->title);
+
+        $news->save();
+
+        return $response->withRedirect('/moderka/news');
+    }
 }
