@@ -4590,3 +4590,16 @@ nav {
     margin-top: 30px;
     display: block;
 }
+
+.news-page .yellow-block .btn{
+    border: 2px solid #352c86;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.news-page .content{
+    padding-bottom: 40px;
+}
+.news-page .yellow-block{
+    padding: 40px 0;
+}

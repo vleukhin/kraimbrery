@@ -25,6 +25,8 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication([
 
 $app->get('/', App\Controllers\Landing::class .':MainAction');
 
+$app->get('/news-{id}-{url}', App\Controllers\NewsController::class .':show');
+
 $app->any('/moderka', App\Controllers\Moderka::class .':MainAction');
 
 $app->any('/moderka/afi[/{action}[/{id}]]', App\Controllers\Moderka::class .':AfiAction');

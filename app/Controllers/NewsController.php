@@ -117,4 +117,17 @@ class NewsController
 
         return $response->withRedirect('/moderka/news');
     }
+
+    public function show(Request $request, Response $response, $args)
+    {
+        $news = News::find($args['id']);
+
+        if (!$news) {
+            return $response->withStatus(404);
+        }
+
+        return $this->twig->render($response, 'news/show.twig', [
+            'news' => $news,
+        ]);
+    }
 }
