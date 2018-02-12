@@ -61,4 +61,43 @@ class NewsController
 
         return $response->withRedirect('/moderka/news');
     }
+
+    public function edit(Request $request, Response $response, $args)
+    {
+        $news = News::find($args['id']);
+
+        if (!$news){
+           return $response->withStatus(404);
+        }
+
+        return $this->twig->render($response, 'moderka/news/edit.twig', [
+            'news' => $news,
+        ]);
+    }
+
+    public function update(Request $request, Response $response, $args)
+    {
+        $news = News::find($args['id']);
+
+        if (!$news){
+            return $response->withStatus(404);
+        }
+
+        $news->fill($request->getParsedBody());
+
+        $news->url = translit($news->title);
+
+        $uploadedFiles = $request->getUploadedFiles();
+
+        // handle single input with single file upload
+        $uploadedFile = $uploadedFiles['image'] ?? null;
+
+        if ($uploadedFile and $uploadedFile->getError() === UPLOAD_ERR_OK) {
+            $news->image = moveUploadedFile($this->upload_dir, $uploadedFile);
+        }
+
+        $news->save();
+
+        return $response->withRedirect('/moderka/news');
+    }
 }

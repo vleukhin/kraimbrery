@@ -35,5 +35,7 @@ $app->any('/moderka/img[/{type}[/{action}[/{file}]]]', App\Controllers\Moderka::
 $app->get('/moderka/news', App\Controllers\NewsController::class .':adminList');
 $app->get('/moderka/news/create', App\Controllers\NewsController::class .':create');
 $app->post('/moderka/news/create', App\Controllers\NewsController::class .':store');
+$app->get('/moderka/news/{id}/edit', App\Controllers\NewsController::class .':edit');
+$app->post('/moderka/news/{id}/update', App\Controllers\NewsController::class .':update');
 
 $app->run();

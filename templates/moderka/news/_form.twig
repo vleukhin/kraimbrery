@@ -1,7 +1,10 @@
 <div class="form-group">
     <label for="name">Заголовок</label>
-    <input type="text" name="title" class="form-control" id="name" required>
+    <input type="text" name="title" class="form-control" id="name" required value="{{ news.title|default('') }}">
 </div>
+{% if not creating and news.image %}
+    <img src="/uploads/news/{{ news.image }}" alt="" style="max-width: 300px">
+{% endif %}
 <div class="form-group">
     <label for="file">Изоражение</label> <br>
 
@@ -9,8 +12,8 @@
 </div>
 <div class="form-group">
     <label for="text">Текст</label>
-    <textarea name="text" class="form-control" required id="text"></textarea>
+    <textarea name="text" class="form-control" required id="text">{{ news.text|default('') }}</textarea>
 </div>
 <div class="form-group">
-    <button class="btn btn-success">Создать</button>
+    <button class="btn btn-success">{{ creating ? 'Создать' : 'Сохранить'}}</button>
 </div>
