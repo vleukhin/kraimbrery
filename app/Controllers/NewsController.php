@@ -130,4 +130,11 @@ class NewsController
             'news' => $news,
         ]);
     }
+
+    public function list(Request $request, Response $response)
+    {
+        return $this->twig->render($response, 'news/list.twig', [
+            'list' => News::all(),
+        ]);
+    }
 }
