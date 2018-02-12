@@ -3,3 +3,5 @@
 .idea
 .env
 app/afi.php
+app/config.php.php
+app/slider.php.php
