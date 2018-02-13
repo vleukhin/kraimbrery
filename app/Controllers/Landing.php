@@ -43,6 +43,7 @@ class Landing
             'last_news' => News::orderBy('created_at', 'desc')->first(),
             'slider' => $this->getImg($path.'slider/'),
             'slides' => require dirname(__FILE__).'/../slider.php',
+            'photos' => require dirname(__FILE__).'/../photo.php',
             'photo' => $this->getImg($path.'photo/'),
             'afi' => $afi_vars['list'],
             'mari_soc' => array(

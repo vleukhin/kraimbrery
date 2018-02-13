@@ -6614,26 +6614,26 @@ $(document).ready(function () {
         navText: '',
         autoplay: true
     });
-    $('.slider-02').owlCarousel({
-        responsiveClass: true,
-        responsive: {
-            0: {
-                items: 1
-            },
-            1025: {
-                items: 2,
-            },
-            1921: {
-                items: 3
-            }
-        },
-        autoHeight: true,
-        dots: false,
-        nav: true,
-        loop: true,
-        navText: '',
-        autoplay: true
-    });
+    // $('.slider-02').owlCarousel({
+    //     responsiveClass: true,
+    //     responsive: {
+    //         0: {
+    //             items: 1
+    //         },
+    //         1025: {
+    //             items: 2,
+    //         },
+    //         1921: {
+    //             items: 3
+    //         }
+    //     },
+    //     autoHeight: true,
+    //     dots: false,
+    //     nav: true,
+    //     loop: true,
+    //     navText: '',
+    //     autoplay: true
+    // });
 
     $('.burger').click(function () {
         $('.menu').fadeIn();
