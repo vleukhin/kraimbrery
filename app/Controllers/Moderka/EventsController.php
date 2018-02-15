@@ -44,4 +44,17 @@ class EventsController extends Controller
 
         return $response->withRedirect('/moderka/events');
     }
+
+    public function delete(Request $request, Response $response, $args)
+    {
+        $event = Event::find($args['id'] ?? null);
+
+        if (is_null($event)){
+            return $response->withStatus(404);
+        }
+
+        $event->delete();
+
+        return $response->withRedirect('/moderka/events');
+    }
 }

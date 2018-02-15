@@ -47,7 +47,7 @@
                     <a href="#" title="Удалить" v-on:click.prevent="edit(event)" v-if="!editing">
                         <i class="fa fa-edit" aria-hidden="true" style="color: #000"></i>
                     </a>
-                    <a :href="'/moderka/afi/del/' +  event.id" title="Удалить" v-if="!editing">
+                    <a :href="'/moderka/events/'+event.id+'/delete'" title="Удалить" v-if="!editing" onclick="return confirm('Вы уверены, что хотите удалить событие?')">
                         <i class="fa fa-times" aria-hidden="true" style="color: #e60000"></i>
                     </a>
                 </td>
