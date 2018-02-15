@@ -31,4 +31,17 @@ class EventsController extends Controller
 
         return $response->withRedirect('/moderka/events');
     }
+
+    public function update(Request $request, Response $response, $args)
+    {
+        $event = Event::find($args['id'] ?? null);
+
+        if (is_null($event)){
+            return $response->withStatus(404);
+        }
+
+        $event->update($request->getParsedBody());
+
+        return $response->withRedirect('/moderka/events');
+    }
 }

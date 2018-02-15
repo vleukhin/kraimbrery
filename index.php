@@ -38,6 +38,7 @@ $app->any('/moderka/img[/{type}[/{action}[/{file}]]]', App\Controllers\Moderka::
 
 $app->get('/moderka/events', App\Controllers\Moderka\EventsController::class .':list');
 $app->post('/moderka/events/create', App\Controllers\Moderka\EventsController::class .':create');
+$app->post('/moderka/events/{id}/update', App\Controllers\Moderka\EventsController::class .':update');
 
 $app->get('/moderka/news', App\Controllers\Moderka\NewsController::class .':adminList');
 $app->get('/moderka/news/create', App\Controllers\Moderka\NewsController::class .':create');

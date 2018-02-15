@@ -117,8 +117,10 @@
             },
 
             save: function () {
-                this.$http.post('/moderka/afiUpdate/' + this.currentEvent.id, {
-                    event: this.currentEvent
+                this.$http.post('/moderka/events/' + this.currentEvent.id + '/update', {
+                    date: this.currentEvent.date,
+                    title: this.currentEvent.title,
+                    link: this.currentEvent.link
                 }).then(function (response) {
                     alert('Сохранено');
                     this.editing = false;
