@@ -6,19 +6,19 @@
     <div id="afi">
         <h1>Афиша</h1>
         <hr>
-        <form action="/moderka/afi/add" method="post">
+        <form action="/moderka/events/create" method="post">
             <div class="form-group row">
                 <div class="col-md-4">
                     <label for="f_date">Дата</label>
-                    <input type="date" class="form-control" name="c[date]" value="" id="f_date" required v-model="currentEvent.date">
+                    <input type="date" class="form-control" name="date" value="" id="f_date" required v-model="currentEvent.date">
                 </div>
                 <div class="col-md-4">
-                    <label for="f_city">Город</label>
-                    <input type="text" class="form-control" name="c[city]" value="" id="f_city" required v-model="currentEvent.city">
+                    <label for="f_title">Город</label>
+                    <input type="text" class="form-control" name="title" value="" id="f_title" required v-model="currentEvent.title">
                 </div>
                 <div class="col-md-4">
                     <label for="f_link">Ссылка</label>
-                    <input type="text" class="form-control" name="c[link]" value="" id="f_link" required v-model="currentEvent.link">
+                    <input type="text" class="form-control" name="link" value="" id="f_link" v-model="currentEvent.link">
                 </div>
             </div>
             <div class="form-group row">
@@ -41,7 +41,7 @@
             <tbody>
             <tr v-for="event in events" v-bind:class="{ editing: event.id == currentEvent.id }">
                 <td v-html="formatDate(event)"></td>
-                <td v-html="event.city"></td>
+                <td v-html="event.title"></td>
                 <td v-html="event.link"></td>
                 <td class="text-right">
                     <a href="#" title="Удалить" v-on:click.prevent="edit(event)" v-if="!editing">
@@ -68,18 +68,18 @@
             el: '#afi',
 
             data: {
-                events: {{ events|json_encode() }},
+                events: {{ events|json_encode()|raw }},
         editing: false,
             currentEvent: {
             id: '',
                 date: '',
-                city: '',
+                title: '',
                 link: ''
         },
         savedEvent: {
             id: '',
                 date: '',
-                city: '',
+                title: '',
                 link: ''
         }
         },
@@ -104,14 +104,14 @@
                 this.savedEvent = {
                     id: '',
                     date: '',
-                    city: '',
+                    title: '',
                     link: ''
                 };
                 this.editing = false;
                 this.currentEvent = {
                     id: '',
                     date: '',
-                    city: '',
+                    title: '',
                     link: ''
                 }
             },
@@ -125,7 +125,7 @@
                     this.currentEvent = {
                         id: '',
                         date: '',
-                        city: '',
+                        title: '',
                         link: ''
                     }
                 }.bind(this), function () {
