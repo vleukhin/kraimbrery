@@ -32,14 +32,19 @@
         <table class="table table-sm">
             <thead>
             <tr>
+                <th scope="col"></th>
                 <th scope="col">Дата</th>
                 <th scope="col">Город</th>
                 <th scope="col">Ссылка</th>
                 <th scope="col"></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody id="events">
             <tr v-for="event in events" v-bind:class="{ editing: event.id == currentEvent.id }">
+                <td>
+                    <i class="fa fa-bars" style="cursor:pointer;"></i>
+                    <input type="hidden" name="id" :value="event.id">
+                </td>
                 <td v-html="formatDate(event)"></td>
                 <td v-html="event.title"></td>
                 <td v-html="event.link"></td>
@@ -135,7 +140,24 @@
                 });
             }
         }
-        })
+        });
+
+        (function ($) {
+            $(document).ready(function () {
+                $('#events').sortable({
+                    handle: '.fa-bars',
+                    stop: function( event, ui ) {
+                        var ids = [];
+
+                        $('[name=id]').each(function (index) {
+                           ids.push($(this).val());
+                        });
+
+                        $.post('/moderka/events/sort', {order: ids});
+                    }
+                });
+            });
+        })(window.jQuery);
     </script>
 {% endblock %}
 

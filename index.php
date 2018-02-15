@@ -40,6 +40,7 @@ $app->get('/moderka/events', App\Controllers\Moderka\EventsController::class .':
 $app->post('/moderka/events/create', App\Controllers\Moderka\EventsController::class .':create');
 $app->post('/moderka/events/{id}/update', App\Controllers\Moderka\EventsController::class .':update');
 $app->get('/moderka/events/{id}/delete', App\Controllers\Moderka\EventsController::class .':delete');
+$app->post('/moderka/events/sort', App\Controllers\Moderka\EventsController::class .':sort');
 
 $app->get('/moderka/news', App\Controllers\Moderka\NewsController::class .':adminList');
 $app->get('/moderka/news/create', App\Controllers\Moderka\NewsController::class .':create');

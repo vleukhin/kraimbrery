@@ -57,4 +57,13 @@ class EventsController extends Controller
 
         return $response->withRedirect('/moderka/events');
     }
+
+    public function sort(Request $request, Response $response)
+    {
+        $order = $request->getParsedBody()['order'] ?? [];
+
+        foreach ($order as $weight => $id){
+            Event::where('id', $id)->update(['weight' => $weight]);
+        }
+    }
 }
