@@ -1,0 +1,163 @@
+{% extends "moderka/layout.twig" %}
+{% block title %}Афиша{% endblock %}
+{% block events %}active{% endblock %}
+
+{% block content %}
+    <div id="afi">
+        <h1>Афиша</h1>
+        <hr>
+        <form action="/moderka/events/create" method="post">
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <label for="f_date">Дата</label>
+                    <input type="date" class="form-control" name="date" value="" id="f_date" required v-model="currentEvent.date">
+                </div>
+                <div class="col-md-4">
+                    <label for="f_title">Город</label>
+                    <input type="text" class="form-control" name="title" value="" id="f_title" required v-model="currentEvent.title">
+                </div>
+                <div class="col-md-4">
+                    <label for="f_link">Ссылка</label>
+                    <input type="text" class="form-control" name="link" value="" id="f_link" v-model="currentEvent.link">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary" v-if="!editing">Добавить</button>
+                    <button type="button" class="btn btn-warning" v-if="editing" v-on:click="save()">Сохранить</button>
+                    <button type="button" class="btn btn-default" v-if="editing" v-on:click="cancel()">Отмена</button>
+                </div>
+            </div>
+        </form>
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Дата</th>
+                <th scope="col">Город</th>
+                <th scope="col">Ссылка</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody id="events">
+            <tr v-for="event in events" v-bind:class="{ editing: event.id == currentEvent.id }">
+                <td>
+                    <i class="fa fa-bars" style="cursor:pointer;"></i>
+                    <input type="hidden" name="id" :value="event.id">
+                </td>
+                <td v-html="formatDate(event)"></td>
+                <td v-html="event.title"></td>
+                <td v-html="event.link"></td>
+                <td class="text-right">
+                    <a href="#" title="Редактировать" v-on:click.prevent="edit(event)" v-if="!editing">
+                        <i class="fa fa-edit" aria-hidden="true" style="color: #000"></i>
+                    </a>
+                    <a :href="'/moderka/events/'+event.id+'/delete'" title="Удалить" v-if="!editing" onclick="return confirm('Вы уверены, что хотите удалить событие?')">
+                        <i class="fa fa-times" aria-hidden="true" style="color: #e60000"></i>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <style>
+        button{
+            cursor: pointer;
+        }
+        tr.editing td{
+            background-color: #de9ffd;
+        }
+    </style>
+    <script>
+        var afi = new Vue({
+            el: '#afi',
+
+            data: {
+                events: {{ events|json_encode()|raw }},
+        editing: false,
+            currentEvent: {
+            id: '',
+                date: '',
+                title: '',
+                link: ''
+        },
+        savedEvent: {
+            id: '',
+                date: '',
+                title: '',
+                link: ''
+        }
+        },
+
+        methods: {
+            edit: function (event) {
+                this.editing = true;
+                this.currentEvent = event;
+                Object.assign(this.savedEvent, event);
+
+                window.scrollTo(0, 0);
+            },
+
+            formatDate: function (event) {
+                date = event.date.split('-');
+
+                return date[2] + '.' + date[1] + '.' + date[0];
+            },
+
+            cancel: function () {
+                Object.assign(this.currentEvent, this.savedEvent);
+                this.savedEvent = {
+                    id: '',
+                    date: '',
+                    title: '',
+                    link: ''
+                };
+                this.editing = false;
+                this.currentEvent = {
+                    id: '',
+                    date: '',
+                    title: '',
+                    link: ''
+                }
+            },
+
+            save: function () {
+                this.$http.post('/moderka/events/' + this.currentEvent.id + '/update', {
+                    date: this.currentEvent.date,
+                    title: this.currentEvent.title,
+                    link: this.currentEvent.link
+                }).then(function (response) {
+                    alert('Сохранено');
+                    this.editing = false;
+                    this.currentEvent = {
+                        id: '',
+                        date: '',
+                        title: '',
+                        link: ''
+                    }
+                }.bind(this), function () {
+                    alert('Не удалось сохранить');
+                });
+            }
+        }
+        });
+
+        (function ($) {
+            $(document).ready(function () {
+                $('#events').sortable({
+                    handle: '.fa-bars',
+                    stop: function( event, ui ) {
+                        var ids = [];
+
+                        $('[name=id]').each(function (index) {
+                           ids.push($(this).val());
+                        });
+
+                        $.post('/moderka/events/sort', {order: ids});
+                    }
+                });
+            });
+        })(window.jQuery);
+    </script>
+{% endblock %}
+

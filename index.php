@@ -1,18 +1,19 @@
 <?php
-require_once './vendor/autoload.php';
 
-define('APP_ROOT', __DIR__);
+define('APP_ROOT', __DIR__ . '/');
 
-$dotenv = new Dotenv\Dotenv('./');
+require_once APP_ROOT . 'vendor/autoload.php';
+
+$dotenv = new Dotenv\Dotenv(APP_ROOT);
 $dotenv->load();
 
-$config = require './config/app.php';
+$config = require APP_ROOT. 'config/app.php';
 
 $app = new \Slim\App(['settings' => $config]);
 
 $container = $app->getContainer();
 
-require './app/lib/dependencies.php';
+require APP_ROOT. 'app/lib/dependencies.php';
 
 $app->add(new \Slim\Middleware\HttpBasicAuthentication([
     'path'  => '/moderka',
@@ -25,22 +26,27 @@ $app->add(new \Slim\Middleware\HttpBasicAuthentication([
 
 $app->get('/', App\Controllers\Landing::class .':MainAction');
 
-$app->get('/news-{id}-{url}', App\Controllers\NewsController::class .':show');
-$app->get('/news', App\Controllers\NewsController::class .':list');
+$app->get('/news-{id}-{url}', App\Controllers\Moderka\NewsController::class .':show');
+$app->get('/news', App\Controllers\Moderka\NewsController::class .':list');
 
 $app->any('/moderka', App\Controllers\Moderka::class .':MainAction');
 
-$app->any('/moderka/afi[/{action}[/{id}]]', App\Controllers\Moderka::class .':AfiAction');
-$app->post('/moderka/afiUpdate/{id}', App\Controllers\Moderka::class .':AfiUpdateAction');
-
 $app->any('/moderka/img[/{type}[/{action}[/{file}]]]', App\Controllers\Moderka::class .':ImgAction');
 
-$app->get('/moderka/news', App\Controllers\NewsController::class .':adminList');
-$app->get('/moderka/news/create', App\Controllers\NewsController::class .':create');
-$app->post('/moderka/news/create', App\Controllers\NewsController::class .':store');
-$app->get('/moderka/news/{id}/edit', App\Controllers\NewsController::class .':edit');
-$app->post('/moderka/news/{id}/update', App\Controllers\NewsController::class .':update');
-$app->post('/moderka/news/{id}/delete', App\Controllers\NewsController::class .':delete');
+
+$app->get('/moderka/events', App\Controllers\Moderka\EventsController::class .':list');
+$app->post('/moderka/events/create', App\Controllers\Moderka\EventsController::class .':create');
+$app->post('/moderka/events/{id}/update', App\Controllers\Moderka\EventsController::class .':update');
+$app->get('/moderka/events/{id}/delete', App\Controllers\Moderka\EventsController::class .':delete');
+$app->post('/moderka/events/sort', App\Controllers\Moderka\EventsController::class .':sort');
+$app->get('/events/import', App\Controllers\Moderka\EventsController::class .':import');
+
+$app->get('/moderka/news', App\Controllers\Moderka\NewsController::class .':adminList');
+$app->get('/moderka/news/create', App\Controllers\Moderka\NewsController::class .':create');
+$app->post('/moderka/news/create', App\Controllers\Moderka\NewsController::class .':store');
+$app->get('/moderka/news/{id}/edit', App\Controllers\Moderka\NewsController::class .':edit');
+$app->post('/moderka/news/{id}/update', App\Controllers\Moderka\NewsController::class .':update');
+$app->post('/moderka/news/{id}/delete', App\Controllers\Moderka\NewsController::class .':delete');
 
 
 $app->run();

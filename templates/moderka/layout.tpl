@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item{block 'afi'}{/block}">
-                <a class="nav-link" href="/moderka/afi">Афиша</a>
+                <a class="nav-link" href="/moderka/events">Афиша</a>
             </li>
             <li class="nav-item{block 'news'}{/block}">
                 <a class="nav-link" href="/moderka/news">Новости</a>

@@ -151,7 +151,7 @@
             </div>
         </div>
     </div>
-    {if $afi?}
+    {if $events->isNotEmpty()}
     <div class="neon-line" id="events">Туси с ней</div>
     <div class="ticket">
         <div class="yellow-link">
@@ -161,11 +161,15 @@
                 <div class="link"></div>
             </div>
         </div>
-        {foreach $afi as $key => $row}
+        {foreach $events as $event}
             <div class="table color-yellow">
-                <div class="date">{$row.date|date_format:"%d.%m"}</div>
-                <div class="city">{$row.city}</div>
-                <div class="link"><a href="{$row.link}" target="_blank" class="btn">Купить билет</a></div>
+                <div class="date">{$event.date|date_format:"%d.%m"}</div>
+                <div class="city">{$event.title}</div>
+                <div class="link">
+                    {if $event.link }
+                        <a href="{$event.link}" target="_blank" class="btn">Купить билет</a>
+                    {/if}
+                </div>
             </div>
         {/foreach}
     </div>

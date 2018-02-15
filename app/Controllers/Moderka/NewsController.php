@@ -5,28 +5,15 @@
  * E-mail: vleukhin@ya.ru
  */
 
-namespace App\Controllers;
-
+namespace App\Controllers\Moderka;
 
 use App\Models\News;
 use Slim\Http\Request;
 use Slim\Http\Response;
-use Slim\Views\Twig;
 
-class NewsController
+class NewsController extends Controller
 {
-    /**
-     * @var Twig
-     */
-    protected $twig;
-
     protected $upload_dir = APP_ROOT . '/uploads/news';
-
-    public function __construct($container)
-    {
-        $this->container = $container;
-        $this->twig = $container['view'];
-    }
 
     public function adminList(Request $request, Response $response)
     {

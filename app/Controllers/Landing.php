@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Event;
 use App\Models\News;
 use \Fenom;
 
@@ -37,15 +38,13 @@ class Landing
     {
         $path = dirname(__FILE__).'/../../uploads/';
 
-        $afi = dirname(__FILE__).'/../afi.php';
-        $afi_vars = require($afi);
         $vars = array(
             'last_news' => News::orderBy('created_at', 'desc')->first(),
             'slider' => $this->getImg($path.'slider/'),
             'slides' => require dirname(__FILE__).'/../slider.php',
             'photos' => require dirname(__FILE__).'/../photo.php',
             'photo' => $this->getImg($path.'photo/'),
-            'afi' => $afi_vars['list'],
+            'events' => Event::select()->orderBy('weight')->get(),
             'mari_soc' => array(
                 'vk' => !empty($this->config['mari_vk']) ? $this->config['mari_vk'] : '',
                 'instagram' => !empty($this->config['mari_instagram']) ? $this->config['mari_instagram'] : '',
