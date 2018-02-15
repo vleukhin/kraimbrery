@@ -66,4 +66,20 @@ class EventsController extends Controller
             Event::where('id', $id)->update(['weight' => $weight]);
         }
     }
+
+    public function import()
+    {
+        $afi_list = include(dirname(__FILE__) . '/../../afi.php');
+
+        foreach ($afi_list['list'] ?? [] as $afi) {
+            if (!Event::where('title', $afi['city'])->count()) {
+                Event::create([
+                    'title'  => $afi['city'],
+                    'date'   => $afi['date'],
+                    'link'   => $afi['link'],
+                    'weight' => (Event::max('weight') ?? 0) + 1,
+                ]);
+            }
+        }
+    }
 }
