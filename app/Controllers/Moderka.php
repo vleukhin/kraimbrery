@@ -252,4 +252,13 @@ class Moderka
 
         return $result;
     }
+
+    public function removeVideoCover()
+    {
+        $this->config = Config::setting()->get();
+
+        $this->config['video_cover'] = null;
+
+        Config::setting()->save($this->config);
+    }
 }

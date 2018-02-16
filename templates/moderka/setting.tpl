@@ -103,7 +103,13 @@
             <div class="col-md-12">
                 <label for="video_cover">Обложка видео</label><br>
                 {if !empty($c.video_cover) }
-                    <img src="/{$c.video_cover}" alt="" style="max-width: 400px "><br><br>
+                    <div class="video-cover">
+                        <img src="/{$c.video_cover}" alt="" style="max-width: 400px ">
+                        <button class="btn btn-danger" style="cursor:pointer;" type="button" data-js="remove-video-cover">
+                            <i class="fa fa-trash"></i> Удалить
+                        </button>
+                        <br><br>
+                    </div>
                 {/if}
                 <input type="file" class="form-control" name="video_cover" id="video_cover" accept=".png,.jpg,.jpeg">
             </div>
@@ -181,4 +187,15 @@
             </div>
         </div>
     </form>
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                $('[data-js=remove-video-cover]').click(function () {
+                    $.post('/moderka/settings/remove-video-cover').then(function () {
+                        $('.video-cover').remove();
+                    }.bind($(this)))
+                })
+            });
+        })(window.jQuery);
+    </script>
 {/block}

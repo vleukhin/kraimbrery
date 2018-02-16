@@ -33,6 +33,8 @@ $app->any('/moderka', App\Controllers\Moderka::class .':MainAction');
 
 $app->any('/moderka/img[/{type}[/{action}[/{file}]]]', App\Controllers\Moderka::class .':ImgAction');
 
+$app->post('/moderka/settings/remove-video-cover', App\Controllers\Moderka::class .':removeVideoCover');
+
 
 $app->get('/moderka/events', App\Controllers\Moderka\EventsController::class .':list');
 $app->post('/moderka/events/create', App\Controllers\Moderka\EventsController::class .':create');
