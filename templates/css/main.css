@@ -3374,6 +3374,7 @@
     height: auto;
     vertical-align: middle;
     border-radius: inherit;
+    display: none;
 }
 
 .plyr input[type='range'] {
