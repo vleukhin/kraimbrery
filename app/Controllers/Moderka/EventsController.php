@@ -65,6 +65,8 @@ class EventsController extends Controller
         foreach ($order as $weight => $id){
             Event::where('id', $id)->update(['weight' => $weight]);
         }
+
+        return $response;
     }
 
     public function import()

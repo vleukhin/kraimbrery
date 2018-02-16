@@ -27,7 +27,7 @@ class Moderka
         $file = $args['file'] ?? null;
 
         if (in_array($type, ['slider', 'photo'])) {
-            $slides = require(dirname(__FILE__) . '/../'.$type.'.php');
+            $slides = require(dirname(__FILE__) . '/../' . $type . '.php');
 
             $msg_error = '';
             $path = dirname(__FILE__) . '/../../uploads/' . $type . '/';
@@ -82,16 +82,16 @@ class Moderka
     protected function saveSlides($slides, $type)
     {
         file_put_contents(
-            dirname(__FILE__) . '/../'.$type.'.php',
+            dirname(__FILE__) . '/../' . $type . '.php',
             '<? ' . PHP_EOL . ' return ' . var_export($slides, true) . ';'
         );
 
-        header('location: /moderka/img/'.$type.'/');
+        header('location: /moderka/img/' . $type . '/');
         exit();
     }
 
 
-    public function MainAction()
+    public function MainAction(Request $request, Response $response)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->config = Config::setting()->get();
@@ -111,7 +111,7 @@ class Moderka
                 }
             }
 
-            foreach (['audio', 'audio2', 'audio3'] as $audio){
+            foreach (['audio', 'audio2', 'audio3'] as $audio) {
                 if (!empty($_FILES[$audio]['size'])) {
                     $upload = $this->uploadFile(
                         $_FILES[$audio]['tmp_name'],
@@ -125,6 +125,19 @@ class Moderka
                         }
                         $post[$audio] = $upload['file'];
                     }
+                }
+            }
+
+            $video_cover = $request->getUploadedFiles()['video_cover'] ?? null;
+
+            if ($video_cover and $video_cover->getError() === UPLOAD_ERR_OK) {
+                try {
+                    if (file_exists(APP_ROOT . $this->config['video_cover']) and !empty($this->config['video_cover'])) {
+                        unlink(APP_ROOT . $this->config['video_cover']);
+                    }
+                    $post['video_cover'] = 'uploads/video/' . moveUploadedFile(APP_ROOT . 'uploads/video/', $video_cover);
+                } catch (\Exception $exception) {
+
                 }
             }
 

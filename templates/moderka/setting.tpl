@@ -101,6 +101,15 @@
         </div>
         <div class="form-group row">
             <div class="col-md-12">
+                <label for="video_cover">Обложка видео</label><br>
+                {if !empty($c.video_cover) }
+                    <img src="/{$c.video_cover}" alt="" style="max-width: 400px "><br><br>
+                {/if}
+                <input type="file" class="form-control" name="video_cover" id="video_cover" accept=".png,.jpg,.jpeg">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-12">
                 <label for="video_all">Ссылка на все видео</label>
                 <input type="text" class="form-control" name="c[video_all]" value="{$c.video_all ?: ''}" id="video_all" required>
             </div>

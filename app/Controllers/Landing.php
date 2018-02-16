@@ -61,6 +61,7 @@ class Landing
             'audio_all' => !empty($this->config['audio_all']) ? $this->config['audio_all'] : '',
 
             'video' => !empty($this->config['video']) ? $this->config['video'] : '',
+            'video_cover' => $this->config['video_cover'] ?? null,
             'video_all' => !empty($this->config['video_all']) ? $this->config['video_all'] : '',
 
             'organization' => array(
