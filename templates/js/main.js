@@ -6612,7 +6612,7 @@ $(document).ready(function () {
         nav: true,
         loop: true,
         navText: '',
-        autoplay: true
+        autoplay: false
     });
     // $('.slider-02').owlCarousel({
     //     responsiveClass: true,
