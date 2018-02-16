@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Мари Краймбрери</title>
-    <link rel="stylesheet" href="/templates/css/main.css">
+    <link rel="stylesheet" href="/templates/css/main.css?v={uniqid()}">
     <link rel="stylesheet" href="https://www.youtube.com/yts/cssbin/www-player-webp-vfl-cDqNB.css">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"/>
@@ -242,6 +242,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/templates/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-<script src="/templates/js/main.js"></script>
+<script src="/templates/js/main.js?v={uniqid()}"></script>
 </body>
 </html>
