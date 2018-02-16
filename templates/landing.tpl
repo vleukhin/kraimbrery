@@ -36,13 +36,13 @@
 </div>
 <div class="gradient">
     <div class="owl-carousel owl-theme" style="padding: 30px 0">
-        {foreach $photo as $key => $row}
-            {if !empty($photos[$row]) }
-                <a href="{$photos[$row]}" target="_blank">
-                    <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
+        {foreach $slider as $key => $row}
+            {if !empty($slides[$row]) }
+                <a href="{$slides[$row]}" target="_blank">
+                    <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
                 </a>
             {else}
-                <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
+                <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
             {/if}
         {/foreach}
     </div>
@@ -79,13 +79,13 @@
     <div class="carousel-box">
         <div class="btn btn-photo color-yellow">Фотогалерея</div>
         <div class="slider-02 owl-carousel owl-theme">
-            {foreach $slider as $key => $row}
-                {if !empty($slides[$row]) }
-                    <a href="{$slides[$row]}" target="_blank">
-                        <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
+            {foreach $photo as $key => $row}
+                {if !empty($photos[$row]) }
+                    <a href="{$photos[$row]}" target="_blank">
+                        <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
                     </a>
                 {else}
-                    <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
+                    <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
                 {/if}
             {/foreach}
         </div>
