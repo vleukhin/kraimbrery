@@ -4152,6 +4152,9 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+.plyr{
+    margin-bottom: 10px;
+}
 
 .plyr,
 .playlist--list {

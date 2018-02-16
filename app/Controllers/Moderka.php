@@ -110,20 +110,24 @@ class Moderka
                     $post['who_is_she_img'] = $upload['file'];
                 }
             }
-            if (!empty($_FILES['audio']['size'])) {
-                $upload = $this->uploadFile(
-                    $_FILES['audio']['tmp_name'],
-                    'audio',
-                    $_FILES['audio']['name']
-                );
-                if (!empty($upload['file'])) {
-                    $f_path = dirname(__FILE__) . '/../..' . $this->config['audio'];
-                    if (file_exists($f_path)) {
-                        unlink($f_path);
+
+            foreach (['audio', 'audio2', 'audio3'] as $audio){
+                if (!empty($_FILES[$audio]['size'])) {
+                    $upload = $this->uploadFile(
+                        $_FILES[$audio]['tmp_name'],
+                        'audio',
+                        $_FILES[$audio]['name']
+                    );
+                    if (!empty($upload['file'])) {
+                        $f_path = dirname(__FILE__) . '/../..' . $this->config[$audio];
+                        if (file_exists($f_path) and !empty($this->config[$audio])) {
+                            unlink($f_path);
+                        }
+                        $post[$audio] = $upload['file'];
                     }
-                    $post['audio'] = $upload['file'];
                 }
             }
+
             $post['who_is_she_head'] = nl2br($post['who_is_she_head']);
             $post['who_is_she_intro'] = nl2br($post['who_is_she_intro']);
             $post['who_is_she_full'] = nl2br($post['who_is_she_full']);

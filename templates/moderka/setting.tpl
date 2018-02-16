@@ -52,17 +52,37 @@
         </div>
         <h3>Аудио</h3>
         <div class="form-group row">
-            <div class="col-12">
-                {if $c.audio?}
-                    <div>
-                        <audio controls>
-                            <source src="{$c.audio}" type="audio/mp3">
-                        </audio>
-                    </div>
-                {/if}
+            <div class="col-4">
+                <div>
+                    <audio controls>
+                        <source src="{$c.audio}" type="audio/mp3">
+                    </audio>
+                </div>
                 <label for="audio" class="custom-file">
                     mp3 файл
                     <input type="file" class="form-control" name="audio" id="audio" accept=".mp3">
+                </label>
+            </div>
+            <div class="col-4">
+                <div>
+                    <audio controls>
+                        <source src="{$c.audio2}" type="audio/mp3">
+                    </audio>
+                </div>
+                <label for="audio" class="custom-file">
+                    mp3 файл
+                    <input type="file" class="form-control" name="audio2" id="audio" accept=".mp3">
+                </label>
+            </div>
+            <div class="col-4">
+                <div>
+                    <audio controls>
+                        <source src="{$c.audio3}" type="audio/mp3">
+                    </audio>
+                </div>
+                <label for="audio" class="custom-file">
+                    mp3 файл
+                    <input type="file" class="form-control" name="audio3" id="audio" accept=".mp3">
                 </label>
             </div>
         </div>

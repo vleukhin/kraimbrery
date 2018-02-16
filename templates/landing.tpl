@@ -98,16 +98,27 @@
     <div class="audio-box">
         <div class="weapon">
             <div class="playlist">
-                <div class="plyr">
-                    <audio controls>
-                        <source src="{$audio}" type="audio/mp3">
-                    </audio>
-                </div>
-                {*<ul class='playlist--list'>
-                    <li data-id="0" data-audio="uploads/audio/01.mp3">Не в адеквате</li>
-                    <li data-id="1" data-audio="uploads/audio/02.mp3">Она тебе не идет</li>
-                    <li data-id="2" data-audio="uploads/audio/03.mp3">Туси сам</li>
-                </ul>*}
+                {if !empty($audio) }
+                    <div class="plyr">
+                        <audio controls>
+                            <source src="{$audio}" type="audio/mp3">
+                        </audio>
+                    </div>
+                {/if}
+                {if !empty($audio2) }
+                    <div class="plyr">
+                        <audio controls>
+                            <source src="{$audio2}" type="audio/mp3">
+                        </audio>
+                    </div>
+                {/if}
+                {if !empty($audio3) }
+                    <div class="plyr">
+                        <audio controls>
+                            <source src="{$audio3}" type="audio/mp3">
+                        </audio>
+                    </div>
+                {/if}
             </div>
             <a href="{$audio_all}" target="_blank" class="btn btn-video color-yellow">Слушать все</a>
 

@@ -6538,7 +6538,7 @@
 
 $(document).ready(function () {
     (function () {
-        plyr.setup(document.querySelector('.plyr'));
+        plyr.setup(document.getElementsByClassName('plyr'));
         /*var radio = document.querySelector('.plyr').plyr;
 
         var player = document.querySelector('.playlist');
