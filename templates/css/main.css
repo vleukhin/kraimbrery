@@ -4608,3 +4608,12 @@ nav {
 .news-page .yellow-block{
     padding: 40px 0;
 }
+.youtube-video__cover img{
+    max-width: 980px;
+}
+.youtube-video__iframe{
+    display: none;
+}
+.ytp-cued-thumbnail-overlay{
+    cursor: pointer;
+}

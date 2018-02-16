@@ -6652,4 +6652,14 @@ $(document).ready(function () {
         $('html,body').stop().animate({scrollTop: $(this.hash).offset().top - fixed_offset}, 1000);
         e.preventDefault();
     });
+
+    $('.ytp-cued-thumbnail-overlay').click(function(){
+        var iframe = $('.youtube-video__iframe iframe');
+        iframe.attr('src', iframe.attr('src') + '&autoplay=1');
+
+        setTimeout(function () {
+            $('.youtube-video__cover').remove();
+            $('.youtube-video__iframe').show();
+        }, 300)
+    });
 });
