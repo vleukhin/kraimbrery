@@ -52,17 +52,37 @@
         </div>
         <h3>Аудио</h3>
         <div class="form-group row">
-            <div class="col-12">
-                {if $c.audio?}
-                    <div>
-                        <audio controls>
-                            <source src="{$c.audio}" type="audio/mp3">
-                        </audio>
-                    </div>
-                {/if}
+            <div class="col-4">
+                <div>
+                    <audio controls>
+                        <source src="{$c.audio}" type="audio/mp3">
+                    </audio>
+                </div>
                 <label for="audio" class="custom-file">
                     mp3 файл
                     <input type="file" class="form-control" name="audio" id="audio" accept=".mp3">
+                </label>
+            </div>
+            <div class="col-4">
+                <div>
+                    <audio controls>
+                        <source src="{$c.audio2}" type="audio/mp3">
+                    </audio>
+                </div>
+                <label for="audio" class="custom-file">
+                    mp3 файл
+                    <input type="file" class="form-control" name="audio2" id="audio" accept=".mp3">
+                </label>
+            </div>
+            <div class="col-4">
+                <div>
+                    <audio controls>
+                        <source src="{$c.audio3}" type="audio/mp3">
+                    </audio>
+                </div>
+                <label for="audio" class="custom-file">
+                    mp3 файл
+                    <input type="file" class="form-control" name="audio3" id="audio" accept=".mp3">
                 </label>
             </div>
         </div>
@@ -77,6 +97,21 @@
             <div class="col-md-12">
                 <label for="video">Видео</label>
                 <input type="text" class="form-control" name="c[video]" value="{$c.video ?: ''}" id="video" required>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-md-12">
+                <label for="video_cover">Обложка видео</label><br>
+                {if !empty($c.video_cover) }
+                    <div class="video-cover">
+                        <img src="/{$c.video_cover}" alt="" style="max-width: 400px ">
+                        <button class="btn btn-danger" style="cursor:pointer;" type="button" data-js="remove-video-cover">
+                            <i class="fa fa-trash"></i> Удалить
+                        </button>
+                        <br><br>
+                    </div>
+                {/if}
+                <input type="file" class="form-control" name="video_cover" id="video_cover" accept=".png,.jpg,.jpeg">
             </div>
         </div>
         <div class="form-group row">
@@ -152,4 +187,15 @@
             </div>
         </div>
     </form>
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                $('[data-js=remove-video-cover]').click(function () {
+                    $.post('/moderka/settings/remove-video-cover').then(function () {
+                        $('.video-cover').remove();
+                    }.bind($(this)))
+                })
+            });
+        })(window.jQuery);
+    </script>
 {/block}

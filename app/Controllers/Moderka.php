@@ -20,85 +20,6 @@ class Moderka
         $this->fenom->setOptions($options);
     }
 
-    private function arrSort($a, $b)
-    {
-        if ($a['date'] == $b['date']) {
-            return 0;
-        }
-
-        return $a['date'] > $b['date'] ? 1 : -1;
-    }
-
-    public function AfiAction(Request $request, Response $response, array $args)
-    {
-        $action = $args['action'] ?? null;
-        $id = $args['id'] ?? null;
-
-        $afi = dirname(__FILE__) . '/../afi.php';
-        $vars = require($afi);
-        if ($action == 'add') {
-            $add_afi = $_POST['c'] ?? null;
-            if (is_array($add_afi)) {
-                foreach ($add_afi as $k => $item) {
-                    $add_afi[$k] = trim($item);
-                }
-                $vars['list']['id_' . str_replace('.', '', microtime(true))] = $add_afi;
-                file_put_contents(
-                    $afi,
-                    '<? ' . PHP_EOL . ' return ' . var_export($vars, true) . ';'
-                );
-            }
-
-            return $response->withRedirect('/moderka/afi');
-        } elseif ($action == 'del' && isset($id) && !empty($vars['list'])) {
-            unset($vars['list'][$id]);
-            file_put_contents(
-                $afi,
-                '<? ' . PHP_EOL . ' return ' . var_export($vars, true) . ';'
-            );
-
-            return $response->withRedirect('/moderka/afi');
-        }
-        if (!empty($vars['list'])) {
-            uasort($vars['list'], [$this, 'arrSort']);
-        }
-
-        $vars['events'] = [];
-
-        foreach ($vars['list'] as $id => $event) {
-            $vars['events'][] = array_merge($event, [
-                'id' => $id,
-            ]);
-        }
-
-        $this->fenom->display('afi.tpl', $vars);
-    }
-
-    public function AfiUpdateAction(Request $request, Response $response, array $args)
-    {
-        $id = $args['id'] ?? null;
-
-        if (is_null($id)){
-            return $response->withStatus(404);
-        }
-
-        $file = dirname(__FILE__) . '/../afi.php';
-
-        $vars = require(dirname(__FILE__) . '/../afi.php');
-
-        $data = @json_decode(file_get_contents('php://input'), true);
-
-        if (isset($vars['list'][$id]) and isset($data['event'])) {
-            unset($data['event']['id']);
-            $vars['list'][$id] = $data['event'];
-
-            file_put_contents(
-                $file,
-                '<? ' . PHP_EOL . ' return ' . var_export($vars, true) . ';'
-            );
-        }
-    }
-
     public function ImgAction(Request $request, Response $response, array $args)
     {
         $type = $args['type'] ?? null;
@@ -106,7 +27,7 @@ class Moderka
         $file = $args['file'] ?? null;
 
         if (in_array($type, ['slider', 'photo'])) {
-            $slides = require(dirname(__FILE__) . '/../'.$type.'.php');
+            $slides = require(dirname(__FILE__) . '/../' . $type . '.php');
 
             $msg_error = '';
             $path = dirname(__FILE__) . '/../../uploads/' . $type . '/';
@@ -161,16 +82,16 @@ class Moderka
     protected function saveSlides($slides, $type)
     {
         file_put_contents(
-            dirname(__FILE__) . '/../'.$type.'.php',
+            dirname(__FILE__) . '/../' . $type . '.php',
             '<? ' . PHP_EOL . ' return ' . var_export($slides, true) . ';'
         );
 
-        header('location: /moderka/img/'.$type.'/');
+        header('location: /moderka/img/' . $type . '/');
         exit();
     }
 
 
-    public function MainAction()
+    public function MainAction(Request $request, Response $response)
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $this->config = Config::setting()->get();
@@ -189,20 +110,37 @@ class Moderka
                     $post['who_is_she_img'] = $upload['file'];
                 }
             }
-            if (!empty($_FILES['audio']['size'])) {
-                $upload = $this->uploadFile(
-                    $_FILES['audio']['tmp_name'],
-                    'audio',
-                    $_FILES['audio']['name']
-                );
-                if (!empty($upload['file'])) {
-                    $f_path = dirname(__FILE__) . '/../..' . $this->config['audio'];
-                    if (file_exists($f_path)) {
-                        unlink($f_path);
+
+            foreach (['audio', 'audio2', 'audio3'] as $audio) {
+                if (!empty($_FILES[$audio]['size'])) {
+                    $upload = $this->uploadFile(
+                        $_FILES[$audio]['tmp_name'],
+                        'audio',
+                        $_FILES[$audio]['name']
+                    );
+                    if (!empty($upload['file'])) {
+                        $f_path = dirname(__FILE__) . '/../..' . $this->config[$audio];
+                        if (file_exists($f_path) and !empty($this->config[$audio])) {
+                            unlink($f_path);
+                        }
+                        $post[$audio] = $upload['file'];
                     }
-                    $post['audio'] = $upload['file'];
                 }
             }
+
+            $video_cover = $request->getUploadedFiles()['video_cover'] ?? null;
+
+            if ($video_cover and $video_cover->getError() === UPLOAD_ERR_OK) {
+                try {
+                    if (file_exists(APP_ROOT . $this->config['video_cover']) and !empty($this->config['video_cover'])) {
+                        unlink(APP_ROOT . $this->config['video_cover']);
+                    }
+                    $post['video_cover'] = 'uploads/video/' . moveUploadedFile(APP_ROOT . 'uploads/video/', $video_cover);
+                } catch (\Exception $exception) {
+
+                }
+            }
+
             $post['who_is_she_head'] = nl2br($post['who_is_she_head']);
             $post['who_is_she_intro'] = nl2br($post['who_is_she_intro']);
             $post['who_is_she_full'] = nl2br($post['who_is_she_full']);
@@ -313,5 +251,14 @@ class Moderka
         }
 
         return $result;
+    }
+
+    public function removeVideoCover()
+    {
+        $this->config = Config::setting()->get();
+
+        $this->config['video_cover'] = null;
+
+        Config::setting()->save($this->config);
     }
 }

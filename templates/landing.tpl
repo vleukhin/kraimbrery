@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Мари Краймбрери</title>
-    <link rel="stylesheet" href="/templates/css/main.css">
+    <link rel="stylesheet" href="/templates/css/main.css?v={uniqid()}">
+    <link rel="stylesheet" href="https://www.youtube.com/yts/cssbin/www-player-webp-vfl-cDqNB.css">
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"/>
 </head>
@@ -36,13 +37,13 @@
 </div>
 <div class="gradient">
     <div class="owl-carousel owl-theme" style="padding: 30px 0">
-        {foreach $photo as $key => $row}
-            {if !empty($photos[$row]) }
-                <a href="{$photos[$row]}" target="_blank">
-                    <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
+        {foreach $slider as $key => $row}
+            {if !empty($slides[$row]) }
+                <a href="{$slides[$row]}" target="_blank">
+                    <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
                 </a>
             {else}
-                <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
+                <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
             {/if}
         {/foreach}
     </div>
@@ -79,18 +80,28 @@
     <div class="carousel-box">
         <div class="btn btn-photo color-yellow">Фотогалерея</div>
         <div class="slider-02 owl-carousel owl-theme">
-            {foreach $slider as $key => $row}
-                {if !empty($slides[$row]) }
-                    <a href="{$slides[$row]}" target="_blank">
-                        <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
+            {foreach $photo as $key => $row}
+                {if !empty($photos[$row]) }
+                    <a href="{$photos[$row]}" target="_blank">
+                        <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
                     </a>
                 {else}
-                    <img src="/uploads/slider/{$row}" alt="" class="owl-responsive">
+                    <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
                 {/if}
             {/foreach}
         </div>
         <div class="youtube-video">
-            {$video}
+            {if !empty($video_cover)}
+                <div class="youtube-video__cover ytp-cued-thumbnail-overlay">
+                    <img src="{$video_cover}" alt="">
+                    <button class="ytp-large-play-button ytp-button" aria-label="Смотреть"><svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg></button>
+                </div>
+                <div class="youtube-video__iframe">
+                    {$video}
+                </div>
+            {else}
+                {$video}
+            {/if}
         </div>
         <a href="{$video_all}" target="_blank" class="btn btn-video color-yellow">Смотреть все</a>
     </div>
@@ -98,16 +109,27 @@
     <div class="audio-box">
         <div class="weapon">
             <div class="playlist">
-                <div class="plyr">
-                    <audio controls>
-                        <source src="{$audio}" type="audio/mp3">
-                    </audio>
-                </div>
-                {*<ul class='playlist--list'>
-                    <li data-id="0" data-audio="uploads/audio/01.mp3">Не в адеквате</li>
-                    <li data-id="1" data-audio="uploads/audio/02.mp3">Она тебе не идет</li>
-                    <li data-id="2" data-audio="uploads/audio/03.mp3">Туси сам</li>
-                </ul>*}
+                {if !empty($audio) }
+                    <div class="plyr">
+                        <audio controls>
+                            <source src="{$audio}" type="audio/mp3">
+                        </audio>
+                    </div>
+                {/if}
+                {if !empty($audio2) }
+                    <div class="plyr">
+                        <audio controls>
+                            <source src="{$audio2}" type="audio/mp3">
+                        </audio>
+                    </div>
+                {/if}
+                {if !empty($audio3) }
+                    <div class="plyr">
+                        <audio controls>
+                            <source src="{$audio3}" type="audio/mp3">
+                        </audio>
+                    </div>
+                {/if}
             </div>
             <a href="{$audio_all}" target="_blank" class="btn btn-video color-yellow">Слушать все</a>
 
@@ -151,7 +173,7 @@
             </div>
         </div>
     </div>
-    {if $afi?}
+    {if $events->isNotEmpty()}
     <div class="neon-line" id="events">Туси с ней</div>
     <div class="ticket">
         <div class="yellow-link">
@@ -161,11 +183,15 @@
                 <div class="link"></div>
             </div>
         </div>
-        {foreach $afi as $key => $row}
+        {foreach $events as $event}
             <div class="table color-yellow">
-                <div class="date">{$row.date|date_format:"%d.%m"}</div>
-                <div class="city">{$row.city}</div>
-                <div class="link"><a href="{$row.link}" target="_blank" class="btn">Купить билет</a></div>
+                <div class="date">{$event.date|date_format:"%d.%m"}</div>
+                <div class="city">{$event.title}</div>
+                <div class="link">
+                    {if $event.link }
+                        <a href="{$event.link}" target="_blank" class="btn">Купить билет</a>
+                    {/if}
+                </div>
             </div>
         {/foreach}
     </div>
@@ -216,6 +242,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/templates/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-<script src="/templates/js/main.js"></script>
+<script src="/templates/js/main.js?v={uniqid()}"></script>
 </body>
 </html>

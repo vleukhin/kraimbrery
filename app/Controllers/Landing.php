@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Event;
 use App\Models\News;
 use \Fenom;
 
@@ -37,15 +38,13 @@ class Landing
     {
         $path = dirname(__FILE__).'/../../uploads/';
 
-        $afi = dirname(__FILE__).'/../afi.php';
-        $afi_vars = require($afi);
         $vars = array(
             'last_news' => News::orderBy('created_at', 'desc')->first(),
             'slider' => $this->getImg($path.'slider/'),
             'slides' => require dirname(__FILE__).'/../slider.php',
             'photos' => require dirname(__FILE__).'/../photo.php',
             'photo' => $this->getImg($path.'photo/'),
-            'afi' => $afi_vars['list'],
+            'events' => Event::select()->orderBy('weight')->get(),
             'mari_soc' => array(
                 'vk' => !empty($this->config['mari_vk']) ? $this->config['mari_vk'] : '',
                 'instagram' => !empty($this->config['mari_instagram']) ? $this->config['mari_instagram'] : '',
@@ -56,10 +55,13 @@ class Landing
             'who_is_she_intro' => !empty($this->config['who_is_she_intro']) ? $this->config['who_is_she_intro'] : '',
             'who_is_she_full' => !empty($this->config['who_is_she_full']) ? $this->config['who_is_she_full'] : '',
 
-            'audio' => !empty($this->config['audio']) ? $this->config['audio'] : '',
+            'audio' => $this->config['audio'] ?? null,
+            'audio2' => $this->config['audio2'] ?? null,
+            'audio3' => $this->config['audio3'] ?? null,
             'audio_all' => !empty($this->config['audio_all']) ? $this->config['audio_all'] : '',
 
             'video' => !empty($this->config['video']) ? $this->config['video'] : '',
+            'video_cover' => $this->config['video_cover'] ?? null,
             'video_all' => !empty($this->config['video_all']) ? $this->config['video_all'] : '',
 
             'organization' => array(

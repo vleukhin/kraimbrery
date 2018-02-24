@@ -3374,6 +3374,7 @@
     height: auto;
     vertical-align: middle;
     border-radius: inherit;
+    display: none;
 }
 
 .plyr input[type='range'] {
@@ -4152,6 +4153,9 @@
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+.plyr{
+    margin-bottom: 10px;
+}
 
 .plyr,
 .playlist--list {
@@ -4604,4 +4608,13 @@ nav {
 }
 .news-page .yellow-block{
     padding: 40px 0;
+}
+.youtube-video__cover img{
+    max-width: 980px;
+}
+.youtube-video__iframe{
+    display: none;
+}
+.ytp-cued-thumbnail-overlay{
+    cursor: pointer;
 }
