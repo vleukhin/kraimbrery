@@ -29,10 +29,10 @@
     <img src="/templates/img/main.png" class="header-img" alt="">
 </div>
 <div class="yellow-block">
-    {if $mari_soc.vk?}<a href="{$mari_soc.vk}" target="_blank" class="fa fa-vk" aria-hidden="true"></a>{/if}
-    {if $mari_soc.instagram?}
+    {if $mari_soc.vk}<a href="{$mari_soc.vk}" target="_blank" class="fa fa-vk" aria-hidden="true"></a>{/if}
+    {if $mari_soc.instagram}
     <a href="{$mari_soc.instagram}" target="_blank" class="fa fa-instagram" aria-hidden="true"></a>{/if}
-    {if $mari_soc.facebook?}
+    {if $mari_soc.facebook}
     <a href="{$mari_soc.facebook}" target="_blank" class="fa fa-facebook" aria-hidden="true"></a>{/if}
 </div>
 <div class="gradient">
@@ -201,10 +201,10 @@
         <div class="btn-line">
             <div class="contacts">
                 <div class="strong">Организация концертов</div>
-                {if $organization.name?}
+                {if $organization.name}
                     <div>{$organization.name}</div>{/if}
             </div>
-            {if $organization.phone?}
+            {if $organization.phone}
                 <div><a href="tel:{$organization.phone}">{$organization.phone}</a></div>{/if}
         </div>
     </div>
@@ -212,31 +212,33 @@
         <div class="btn-line">
             <div class="contacts">
                 <div class="strong">Менеджер артиста</div>
-                {if $manager.name?}
+                {if $manager.name}
                     <div>{$manager.name}</div>{/if}
             </div>
-            {if $manager.phone?}
+            {if $manager.phone}
                 <div><a href="tel:{$manager.phone}">{$manager.phone}</a></div>{/if}
-            {if $manager.email?}
+            {if $manager.email}
                 <div><a href="mailto:{$manager.email}">{$manager.email}</a></div>{/if}
         </div>
     </div>
     <div class="contacts-box">
-        <a href="{if $velvet_site?}{$velvet_site}{/if}" target="_blank" class="velvet-logo"><img src="/templates/img/velvetmusic-logo.png" alt="velvetmusic"></a>
-        {if $velvet_address?}
+        {if $velvet_site}<a href="http://{$velvet_site}" target="_blank" class="velvet-logo">{/if}
+            <img src="/templates/img/velvetmusic-logo.png" alt="velvetmusic">
+        {if $velvet_site}</a>{/if}
+        {if $velvet_address}
             <address>{$velvet_address}</address>{/if}
-        {if $velvet_phone?}
+        {if $velvet_phone}
             <div><a href="tel:{$velvet_phone}" target="_blank">{$velvet_phone}</a></div>{/if}
-        {if $velvet_email?}
+        {if $velvet_email}
             <div><a href="mailto:{$velvet_email}" target="_blank">{$velvet_email}</a></div>{/if}
-        {if $velvet_site?}
+        {if $velvet_site}
             <div><a href="http://{$velvet_site}" target="_blank">{$velvet_site}</a></div>{/if}
     </div>
     <div class="velvet-soc">
-        {if $velvet_soc.vk?}<a href="{$velvet_soc.vk}" target="_blank" class="fa fa-vk" aria-hidden="true"></a>{/if}
-        {if $velvet_soc.instagram?}
+        {if $velvet_soc.vk}<a href="{$velvet_soc.vk}" target="_blank" class="fa fa-vk" aria-hidden="true"></a>{/if}
+        {if $velvet_soc.instagram}
         <a href="{$velvet_soc.instagram}" target="_blank" class="fa fa-instagram" aria-hidden="true"></a>{/if}
-        {if $velvet_soc.youtube?}
+        {if $velvet_soc.youtube}
         <a href="{$velvet_soc.youtube}" target="_blank" class="fa fa-youtube-play" aria-hidden="true"></a>{/if}
     </div>
 </div>
