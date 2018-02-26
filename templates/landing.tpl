@@ -48,7 +48,7 @@
         {/foreach}
     </div>
     <div class="neon-line" id="who">Кто она</div>
-    <div class="text-info color-yellow">
+    <div class="text-info color-yellow who-is-she">
         {if $who_is_she_img}
             <div><img src="{$who_is_she_img}" alt=""></div>{/if}
         {if $who_is_she_head}

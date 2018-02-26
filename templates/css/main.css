@@ -9,6 +9,24 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'gilroy';
+    src: url("../fonts/radomir-tinkov-gilroy-extrabold-webfont.woff2") format("woff2"),
+    url("../fonts/radomir-tinkov-gilroy-extrabold-webfont.woff") format("woff"),
+    url("../fonts/radomir-tinkov-gilroy-extrabold-webfont.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gilroy';
+    src: url("../fonts/radomir-tinkov-gilroy-light-webfont.woff2") format("woff2"),
+    url("../fonts/radomir-tinkov-gilroy-light-webfont.woff") format("woff"),
+    url("../fonts/radomir-tinkov-gilroy-light-webfont.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
 .fa {
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
@@ -4617,4 +4635,14 @@ nav {
 }
 .ytp-cued-thumbnail-overlay{
     cursor: pointer;
+}
+
+.who-is-she {
+    font-family: gilroy, sans-serif !important;
+    font-weight: normal;
+}
+
+.who-is-she .strong {
+    font-family: gilroy, sans-serif !important;
+    font-weight: normal;
 }
