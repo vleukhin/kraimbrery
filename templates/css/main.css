@@ -4363,7 +4363,6 @@ address {
 }
 
 .header-img {
-    max-width: 100%;
     position: relative;
     z-index: 1;
     width: 100%;
