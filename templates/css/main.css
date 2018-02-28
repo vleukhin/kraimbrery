@@ -4610,7 +4610,9 @@ nav {
         margin: 0 20px;
     }
 }
-
+.btn-text{
+    text-align: center;
+}
 .last-news img{
     width: 100%;
     max-width: 980px;
