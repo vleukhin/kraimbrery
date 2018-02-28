@@ -4313,7 +4313,7 @@ address {
 }
 
 .gradient, .yellow-block {
-    text-align: justify;
+    text-align: center;
 }
 
 .neon-line {
@@ -4633,7 +4633,7 @@ nav {
     font-size: 30px;
 }
 
-.news-page .text-info {
+.text-info {
     text-align: justify;
 }
 

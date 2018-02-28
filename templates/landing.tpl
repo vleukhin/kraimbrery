@@ -50,7 +50,7 @@
     <div class="neon-line" id="who">Кто она</div>
     <div class="text-info color-yellow who-is-she">
         {if $who_is_she_img}
-            <div style="text-align: center"><img src="{$who_is_she_img}" alt=""></div>{/if}
+            <div><img src="{$who_is_she_img}" alt=""></div>{/if}
         {if $who_is_she_head}
             <div class="strong">{$who_is_she_head}</div>{/if}
         {if $who_is_she_intro}
