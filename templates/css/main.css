@@ -4633,6 +4633,10 @@ nav {
     font-size: 30px;
 }
 
+.news-page .text-info {
+    text-align: justify;
+}
+
 .news-page .content{
     padding-bottom: 40px;
 }
