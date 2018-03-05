@@ -189,7 +189,7 @@
                 <div class="city">{$event.title}</div>
                 <div class="link">
                     {if $event.link }
-                        <a href="{$event.link}" target="_blank" class="btn">Купить билет</a>
+                        <a href="{$event.link}" target="_blank" class="btn">{$event.free ? 'Вход свободный' : 'Купить билет'}</a>
                     {/if}
                 </div>
             </div>
