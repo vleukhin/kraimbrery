@@ -110,6 +110,7 @@
         <div class="weapon">
             <div class="playlist">
                 {if !empty($audio) }
+                    <div class="audio-name">{$audio_name}</div>
                     <div class="plyr">
                         <audio controls>
                             <source src="{$audio}" type="audio/mp3">
@@ -117,6 +118,7 @@
                     </div>
                 {/if}
                 {if !empty($audio2) }
+                    <div class="audio-name">{$audio2_name}</div>
                     <div class="plyr">
                         <audio controls>
                             <source src="{$audio2}" type="audio/mp3">
@@ -124,6 +126,7 @@
                     </div>
                 {/if}
                 {if !empty($audio3) }
+                    <div class="audio-name">{$audio3_name}</div>
                     <div class="plyr">
                         <audio controls>
                             <source src="{$audio3}" type="audio/mp3">
@@ -189,7 +192,7 @@
                 <div class="city">{$event.title}</div>
                 <div class="link">
                     {if $event.link }
-                        <a href="{$event.link}" target="_blank" class="btn">Купить билет</a>
+                        <a href="{$event.link}" target="_blank" class="btn">{$event.free ? 'Вход свободный' : 'Купить билет'}</a>
                     {/if}
                 </div>
             </div>

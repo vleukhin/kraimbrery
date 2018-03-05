@@ -58,6 +58,9 @@ class Landing
             'audio' => $this->config['audio'] ?? null,
             'audio2' => $this->config['audio2'] ?? null,
             'audio3' => $this->config['audio3'] ?? null,
+            'audio_name' => $this->config['audio_name'] ?? null,
+            'audio2_name' => $this->config['audio2_name'] ?? null,
+            'audio3_name' => $this->config['audio3_name'] ?? null,
             'audio_all' => !empty($this->config['audio_all']) ? $this->config['audio_all'] : '',
 
             'video' => !empty($this->config['video']) ? $this->config['video'] : '',

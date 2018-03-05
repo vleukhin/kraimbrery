@@ -4654,3 +4654,6 @@ nav {
 .ytp-cued-thumbnail-overlay{
     cursor: pointer;
 }
+.audio-name{
+    color: #f6de5b;
+}
