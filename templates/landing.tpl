@@ -111,7 +111,7 @@
             <div class="playlist">
                 {if !empty($audio) }
                     <div class="audio-name">{$audio_name}</div>
-                    <div class="plyr">
+                    <div class="plyr"  data-index="0">
                         <audio controls>
                             <source src="{$audio}" type="audio/mp3">
                         </audio>
@@ -119,7 +119,7 @@
                 {/if}
                 {if !empty($audio2) }
                     <div class="audio-name">{$audio2_name}</div>
-                    <div class="plyr">
+                    <div class="plyr" data-index="1">
                         <audio controls>
                             <source src="{$audio2}" type="audio/mp3">
                         </audio>
@@ -127,7 +127,7 @@
                 {/if}
                 {if !empty($audio3) }
                     <div class="audio-name">{$audio3_name}</div>
-                    <div class="plyr">
+                    <div class="plyr" data-index="2">
                         <audio controls>
                             <source src="{$audio3}" type="audio/mp3">
                         </audio>
@@ -247,6 +247,6 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/templates/vendor/jquery-3.2.1.min.js"><\/script>')</script>
-<script src="/templates/js/main.js?v={uniqid()}"></script>
+<script src="/templates/js/main.js"></script>
 </body>
 </html>
