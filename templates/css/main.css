@@ -4429,7 +4429,8 @@ nav {
 }
 
 .table {
-    width: 400px;
+    width: 96%;
+    max-width: 400px;
     margin: 0 auto;
     text-align: left;
     padding: 5px 0;
@@ -4621,7 +4622,7 @@ nav {
     line-height: 40px;
 }
 .last-news .intro-text{
-    font-size: 22px;
+    font-size: 16px;
     margin-top: 30px;
 }
 .last-news__link{
@@ -4647,6 +4648,7 @@ nav {
 }
 .youtube-video__cover img{
     max-width: 980px;
+    width: 100%;
 }
 .youtube-video__iframe{
     display: none;
