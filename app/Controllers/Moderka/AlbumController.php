@@ -89,4 +89,23 @@ class AlbumController extends Controller
 
         return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
     }
+
+    public function deletePhoto(Request $request, Response $response, array $args)
+    {
+        $album = Album::find($args['album'] ?? null);
+        $index = $args['index'] ?? null;
+
+        if (is_null($album) or is_null($index)) {
+            return $response->withStatus(404);
+        }
+
+        $photos = $album->photos;
+        $photo = $photos[$index];
+        unset($photos[$index]);
+        unlink($this->upload_dir . '/' . $photo);
+        $album->photos = $photos;
+        $album->save();
+
+        return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
+    }
 }

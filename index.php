@@ -55,5 +55,6 @@ $app->post('/moderka/albums/create', App\Controllers\Moderka\AlbumController::cl
 $app->get('/moderka/albums/{album}/edit', App\Controllers\Moderka\AlbumController::class .':edit');
 $app->post('/moderka/albums/{album}/edit', App\Controllers\Moderka\AlbumController::class .':update');
 $app->post('/moderka/album/{album}/add-photo', App\Controllers\Moderka\AlbumController::class .':addPhoto');
+$app->get('/moderka/albums/{album}/delete-photo/{index}', App\Controllers\Moderka\AlbumController::class .':deletePhoto');
 
 $app->run();
