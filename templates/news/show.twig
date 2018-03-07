@@ -8,12 +8,12 @@
     <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"/>
     <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"/>
 </head>
-<body class="news-body  gradient">
+<body>
 <div class="news-page">
     <div class="gradient">
         <div class="neon-line"><span>Новости</span></div>
     </div>
-    <div class="content">
+    <div class="gradient content">
         <div class="last-news text-info color-yellow">
             <h1>{{ news.title }}</h1>
             {% if news.image %}
@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="yellow-block footer">
+    <div class="yellow-block">
         <a href="/news" class="btn" style="border: 2px solid #352c86;padding: 20px">Назад</a>
     </div>
 </div>
