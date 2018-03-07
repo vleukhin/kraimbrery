@@ -28,6 +28,9 @@
             <li class="nav-item{block 'afi'}{/block}">
                 <a class="nav-link" href="/moderka/events">Афиша</a>
             </li>
+            <li class="nav-item {block 'albums'}{/block}">
+                <a class="nav-link" href="/moderka/albums">Альбомы</a>
+            </li>
             <li class="nav-item{block 'news'}{/block}">
                 <a class="nav-link" href="/moderka/news">Новости</a>
             </li>
