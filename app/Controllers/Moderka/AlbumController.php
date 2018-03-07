@@ -28,9 +28,39 @@ class AlbumController extends Controller
         $name = $request->getParam('name');
 
         $album = Album::create([
-            'name' => $name,
-            'url' => urlencode(translit($name)),
+            'name'   => $name,
+            'url'    => urlencode(translit($name)),
             'photos' => [],
+        ]);
+
+        return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
+    }
+
+    public function edit(Request $request, Response $response, array $args)
+    {
+        $album = Album::find($args['album'] ?? null);
+
+        if (is_null($album)) {
+            return $response->withStatus(404);
+        }
+
+        return $this->twig->render($response, 'moderka/albums/edit.twig', [
+            'album' => $album,
+        ]);
+    }
+
+    public function update(Request $request, Response $response, array $args)
+    {
+        $album = Album::find($args['album'] ?? null);
+
+        if (is_null($album)) {
+            return $response->withStatus(404);
+        }
+
+        $name = $request->getParam('name');
+
+        $album->update([
+            'name' => $name,
         ]);
 
         return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
