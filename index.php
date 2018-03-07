@@ -54,5 +54,6 @@ $app->get('/moderka/albums', App\Controllers\Moderka\AlbumController::class .':l
 $app->post('/moderka/albums/create', App\Controllers\Moderka\AlbumController::class .':create');
 $app->get('/moderka/albums/{album}/edit', App\Controllers\Moderka\AlbumController::class .':edit');
 $app->post('/moderka/albums/{album}/edit', App\Controllers\Moderka\AlbumController::class .':update');
+$app->post('/moderka/album/{album}/add-photo', App\Controllers\Moderka\AlbumController::class .':addPhoto');
 
 $app->run();

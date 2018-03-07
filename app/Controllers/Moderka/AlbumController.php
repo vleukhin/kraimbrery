@@ -11,9 +11,12 @@ namespace App\Controllers\Moderka;
 use App\Models\Album;
 use Slim\Http\Request;
 use Slim\Http\Response;
+use Slim\Http\UploadedFile;
 
 class AlbumController extends Controller
 {
+    protected $upload_dir = APP_ROOT . '/uploads/albums';
+
     public function list(Request $request, Response $response)
     {
         $albums = Album::all();
@@ -62,6 +65,27 @@ class AlbumController extends Controller
         $album->update([
             'name' => $name,
         ]);
+
+        return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
+    }
+
+    public function addPhoto(Request $request, Response $response, array $args)
+    {
+        $album = Album::find($args['album'] ?? null);
+
+        if (is_null($album)) {
+            return $response->withStatus(404);
+        }
+
+        /** @var UploadedFile $photo */
+        $photo = $request->getUploadedFiles()['photo'] ?? null;
+
+        if ($photo and $photo->getError() === UPLOAD_ERR_OK) {
+            $photos = $album->photos;
+            $photos[] = moveUploadedFile($this->upload_dir, $photo);
+            $album->photos = $photos;
+            $album->save();
+        }
 
         return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
     }
