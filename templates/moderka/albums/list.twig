@@ -19,5 +19,26 @@
         </div>
     </form>
     <hr>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Кол-во фото</th>
+            <th>Действия</th>
+        </tr>
+        {% for album in albums %}
+            <tr>
+                <td>{{ album.id }}</td>
+                <td>{{ album.name }}</td>
+                <td>{{ album.photos|length }}</td>
+                <td>
+                    <form action="/moderka/albums/{{ album.id }}/delete" method="post">
+                        <a class="btn btn-primary" href="/moderka/albums/{{ album.id }}/edit"> <i class="fa fa-edit"></i></a>
+                        <button class="btn btn-danger" onclick="return confirm('Вы уверены, что хотите удалить альбом?')"><i class="fa fa-trash"></i></button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}
 
