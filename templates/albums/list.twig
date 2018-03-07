@@ -1,0 +1,25 @@
+{% extends 'app.twig' %}
+{% block title %}{{ album.name }}{% endblock %}
+
+{% block content %}
+    <div class="album-page">
+        <div class="gradient">
+            <div class="neon-line"><span>Альбомы</span></div>
+        </div>
+        <div class="gradient content">
+            <div class="album">
+                {% for album in albums %}
+                    <a id="single_image" href="/album-{{ album.id }}-{{ album.url }}" class="photo photo-main">
+                        <img src="/uploads/albums/{{ album.photos[0] }}" alt=""/>
+                        <span class="album-name">
+                            {{ album.name }}
+                        </span>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="yellow-block">
+            <a href="/" class="btn" style="border: 2px solid #352c86;padding: 20px">Назад</a>
+        </div>
+    </div>
+{% endblock %}

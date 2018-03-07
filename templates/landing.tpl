@@ -79,17 +79,22 @@
     <div class="neon-line" id="look">Посмотри на неё</div>
     <div class="carousel-box">
         <div class="btn btn-photo color-yellow">Фотогалерея</div>
-        <div class="slider-02 owl-carousel owl-theme">
-            {foreach $photo as $key => $row}
-                {if !empty($photos[$row]) }
-                    <a href="{$photos[$row]}" target="_blank">
+        <div class="slider-02">
+            <div class="owl-carousel owl-theme">
+                {foreach $photo as $key => $row}
+                    {if !empty($photos[$row]) }
+                        <a href="{$photos[$row]}" target="_blank">
+                            <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
+                        </a>
+                    {else}
                         <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
-                    </a>
-                {else}
-                    <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
-                {/if}
-            {/foreach}
+                    {/if}
+                {/foreach}
+            </div>
+            <a href="/albums" class="btn btn-video color-yellow">Смотреть все</a>
+
         </div>
+
         <div class="youtube-video">
             {if !empty($video_cover)}
                 <div class="youtube-video__cover ytp-cued-thumbnail-overlay">

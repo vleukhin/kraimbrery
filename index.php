@@ -29,6 +29,9 @@ $app->get('/', App\Controllers\Landing::class .':MainAction');
 $app->get('/news-{id}-{url}', App\Controllers\Moderka\NewsController::class .':show');
 $app->get('/news', App\Controllers\Moderka\NewsController::class .':list');
 
+$app->get('/album-{id}-{url}', App\Controllers\Moderka\AlbumController::class .':show');
+$app->get('/albums', App\Controllers\Moderka\AlbumController::class .':list');
+
 $app->any('/moderka', App\Controllers\Moderka::class .':MainAction');
 
 $app->any('/moderka/img[/{type}[/{action}[/{file}]]]', App\Controllers\Moderka::class .':ImgAction');
@@ -50,5 +53,12 @@ $app->get('/moderka/news/{id}/edit', App\Controllers\Moderka\NewsController::cla
 $app->post('/moderka/news/{id}/update', App\Controllers\Moderka\NewsController::class .':update');
 $app->post('/moderka/news/{id}/delete', App\Controllers\Moderka\NewsController::class .':delete');
 
+$app->get('/moderka/albums', App\Controllers\Moderka\AlbumController::class .':adminList');
+$app->post('/moderka/albums/create', App\Controllers\Moderka\AlbumController::class .':create');
+$app->get('/moderka/albums/{album}/edit', App\Controllers\Moderka\AlbumController::class .':edit');
+$app->post('/moderka/albums/{album}/edit', App\Controllers\Moderka\AlbumController::class .':update');
+$app->post('/moderka/albums/{album}/delete', App\Controllers\Moderka\AlbumController::class .':delete');
+$app->post('/moderka/album/{album}/add-photo', App\Controllers\Moderka\AlbumController::class .':addPhoto');
+$app->get('/moderka/albums/{album}/delete-photo/{index}', App\Controllers\Moderka\AlbumController::class .':deletePhoto');
 
 $app->run();
