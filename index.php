@@ -29,6 +29,8 @@ $app->get('/', App\Controllers\Landing::class .':MainAction');
 $app->get('/news-{id}-{url}', App\Controllers\Moderka\NewsController::class .':show');
 $app->get('/news', App\Controllers\Moderka\NewsController::class .':list');
 
+$app->get('/album-{id}-{url}', App\Controllers\Moderka\AlbumController::class .':show');
+
 $app->any('/moderka', App\Controllers\Moderka::class .':MainAction');
 
 $app->any('/moderka/img[/{type}[/{action}[/{file}]]]', App\Controllers\Moderka::class .':ImgAction');

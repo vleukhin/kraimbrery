@@ -125,4 +125,17 @@ class AlbumController extends Controller
 
         return $response->withRedirect('/moderka/albums');
     }
+
+    public function show(Request $request, Response $response, $args)
+    {
+        $album = Album::find($args['album'] ?? null);
+
+        if (is_null($album)) {
+            return $response->withStatus(404);
+        }
+
+        return $this->twig->render($response, 'album/show.twig', [
+            'album' => $album,
+        ]);
+    }
 }
