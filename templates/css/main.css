@@ -4648,7 +4648,6 @@ nav {
 
 .news-page .content {
     padding-bottom: 40px;
-    /*height:90vh*/
 }
 
 .news-page .yellow-block {
@@ -4670,24 +4669,4 @@ nav {
 
 .audio-name {
     color: #f6de5b;
-}
-
-html{
-    height: 100%;
-    box-sizing: border-box;
-}
-
-.news-body{
-    position: relative;
-    margin: 0;
-    height: 100%;
-}
-
-.footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    text-align: center;
 }
