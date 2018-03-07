@@ -50,5 +50,7 @@ $app->get('/moderka/news/{id}/edit', App\Controllers\Moderka\NewsController::cla
 $app->post('/moderka/news/{id}/update', App\Controllers\Moderka\NewsController::class .':update');
 $app->post('/moderka/news/{id}/delete', App\Controllers\Moderka\NewsController::class .':delete');
 
+$app->get('/moderka/albums', App\Controllers\Moderka\AlbumController::class .':list');
+$app->post('/moderka/albums/create', App\Controllers\Moderka\AlbumController::class .':create');
 
 $app->run();

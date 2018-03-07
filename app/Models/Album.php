@@ -17,4 +17,10 @@ class Album extends Model
     protected $casts = [
         'photos' => 'array'
     ];
+
+    protected $fillable = [
+        'name',
+        'url',
+        'photos'
+    ];
 }
