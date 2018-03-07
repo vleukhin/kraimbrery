@@ -4678,9 +4678,10 @@ nav {
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    padding-bottom: 20px;
 }
 
-.album-page .content{
+.album-page .content {
     width: 100%;
 }
 
@@ -4696,7 +4697,16 @@ nav {
     overflow: hidden;
 }
 
+.album .photo-main {
+    max-height: none;
+}
+
 .album .photo img {
     width: 100%;
     max-height: 200px;
+}
+
+.album-name {
+    color: #f6de5b;
+    text-align: center;
 }

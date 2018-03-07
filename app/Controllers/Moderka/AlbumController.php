@@ -17,7 +17,7 @@ class AlbumController extends Controller
 {
     protected $upload_dir = APP_ROOT . '/uploads/albums';
 
-    public function list(Request $request, Response $response)
+    public function adminList(Request $request, Response $response)
     {
         $albums = Album::all();
 
@@ -136,6 +136,15 @@ class AlbumController extends Controller
 
         return $this->twig->render($response, 'albums/show.twig', [
             'album' => $album,
+        ]);
+    }
+
+    public function list(Request $request, Response $response)
+    {
+        $albums = Album::all();
+
+        return $this->twig->render($response, 'albums/list.twig', [
+            'albums' => $albums,
         ]);
     }
 }
