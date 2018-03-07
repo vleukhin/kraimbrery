@@ -4636,6 +4636,7 @@ nav {
     display: block;
 }
 
+.album-page .yellow-block .btn,
 .news-page .yellow-block .btn {
     border: 2px solid #352c86;
     padding: 10px;
@@ -4650,6 +4651,7 @@ nav {
     padding-bottom: 40px;
 }
 
+.album-page .yellow-block,
 .news-page .yellow-block {
     padding: 40px 0;
 }
@@ -4669,4 +4671,32 @@ nav {
 
 .audio-name {
     color: #f6de5b;
+}
+
+.album {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.album-page .content{
+    width: 100%;
+}
+
+.album .photo {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 3px;
+    border: 1px solid #f6de5b;
+    max-width: 200px;
+    width: 100%;
+    display: block;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.album .photo img {
+    width: 100%;
+    max-height: 200px;
 }

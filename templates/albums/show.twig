@@ -1,0 +1,38 @@
+{% extends 'app.twig' %}
+{% block title %}{{ album.name }}{% endblock %}
+
+{% block content %}
+    <div class="album-page">
+        <div class="gradient">
+            <div class="neon-line"><span>Альбомы</span></div>
+        </div>
+        <div class="gradient content">
+            <h1 class="color-yellow">{{ album.name }}</h1>
+            <div class="album">
+
+                {% for photo in album.photos %}
+                    <a id="single_image" data-fancybox="gallery" href="/uploads/albums/{{ photo }}" class="photo">
+                        <img src="/uploads/albums/{{ photo }}" alt=""/>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="yellow-block">
+            <a href="/news" class="btn" style="border: 2px solid #352c86;padding: 20px">Назад</a>
+        </div>
+    </div>
+{% endblock %}
+
+ {% block scripts %}
+     <script>
+         $(document).ready(function () {
+             $("[data-fancybox]").fancybox({
+                 buttons : [
+                     'slideShow',
+                     'fullScreen',
+                     'close'
+                 ]
+             });
+         });
+     </script>
+ {% endblock %}

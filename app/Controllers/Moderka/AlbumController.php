@@ -128,13 +128,13 @@ class AlbumController extends Controller
 
     public function show(Request $request, Response $response, $args)
     {
-        $album = Album::find($args['album'] ?? null);
+        $album = Album::find($args['id'] ?? null);
 
         if (is_null($album)) {
             return $response->withStatus(404);
         }
 
-        return $this->twig->render($response, 'album/show.twig', [
+        return $this->twig->render($response, 'albums/show.twig', [
             'album' => $album,
         ]);
     }
