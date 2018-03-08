@@ -8,11 +8,14 @@
         </div>
         <div class="gradient content">
             <h1 class="color-yellow">{{ album.name }}</h1>
+            {% if album.description %}
+                <p class="color-yellow">{{ album.description }}</p>
+            {% endif %}
             <div class="album">
 
                 {% for photo in album.photos %}
                     <a id="single_image" data-fancybox="gallery" href="/uploads/albums/{{ photo }}" class="photo">
-                        <img src="/uploads/albums/{{ photo }}" alt=""/>
+                        <img src="/uploads/albums/thumb/{{ photo }}" alt=""/>
                     </a>
                 {% endfor %}
             </div>

@@ -11,6 +11,10 @@
                 <label for="name">Название</label>
                 <input type="text" class="form-control" name="name" value="{{ album.name }}" id="name" required>
             </div>
+            <div class="col-md-3">
+                <label for="description">Описание</label>
+                <textarea class="form-control" name="description" id="description" cols="30" rows="5">{{ album.description }}</textarea>
+            </div>
         </div>
         <div class="form-group row">
             <div class="col-sm-12">
@@ -25,7 +29,7 @@
             <div class="col-12">
                 <label for="photo" class="custom-file">
                     Выберите изображение
-                    <input type="file" class="form-control" multiple="multiple" name="photo" id="photo" accept=".png,.jpg,.jpeg">
+                    <input type="file" class="form-control" multiple="multiple" name="photos[]" id="photo" accept=".png,.jpg,.jpeg" multiple>
                 </label>
             </div>
         </div>
@@ -36,21 +40,33 @@
         </div>
     </form>
     <hr>
-    {% for index, photo in album.photos %}
-        <div class="photo img-thumbnail">
-            <img src="/uploads/albums/{{ photo }}" class="img-thumbnail">
-            <br><br>
-            <div class="text-center">
-                <a href="/moderka/albums/{{ album.id }}/delete-photo/{{ index }}" class="btn btn-danger" role="button">
-                    <i class="fa fa-trash"></i>
-                </a>
+    <div class="photos">
+        {% for index, photo in album.photos %}
+            <div class="photo img-thumbnail" data-photo="{{ photo }}">
+                <img src="/uploads/albums/thumb/{{ photo }}">
+                <br><br>
+                <div class="text-center">
+                    <a href="/moderka/albums/{{ album.id }}/delete-photo/{{ index }}" class="btn btn-danger" role="button">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    {% endfor %}
-
+        {% endfor %}
+    </div>
     <style>
         .img-thumbnail {
             max-width: 200px;
+            min-height: 272px;
+            width: 100%;
+        }
+
+        .img-thumbnail img{
+            padding: .25rem;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: .25rem;
+            max-width: 200px;
+            max-height: 200px;
             width: 100%;
         }
 
@@ -59,5 +75,24 @@
             margin: 5px;
         }
     </style>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            $(".photos").sortable({
+                update: function( event, ui ) {
+                    var order = [];
+                    $('.photo').each(function (index, photo) {
+                        order.push($(photo).data('photo'));
+                    });
+
+                    $.post('/moderka/albums/{{ album.id }}/sort', {
+                        photos: order
+                    })
+                }
+            });
+        });
+    </script>
 {% endblock %}
 

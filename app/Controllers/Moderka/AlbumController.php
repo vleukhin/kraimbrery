@@ -60,10 +60,9 @@ class AlbumController extends Controller
             return $response->withStatus(404);
         }
 
-        $name = $request->getParam('name');
-
         $album->update([
-            'name' => $name,
+            'name'        => $request->getParam('name'),
+            'description' => $request->getParam('description'),
         ]);
 
         return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
@@ -78,14 +77,17 @@ class AlbumController extends Controller
         }
 
         /** @var UploadedFile $photo */
-        $photo = $request->getUploadedFiles()['photo'] ?? null;
+        $photos = $request->getUploadedFiles()['photos'] ?? null;
+        $album_photos = $album->photos;
 
-        if ($photo and $photo->getError() === UPLOAD_ERR_OK) {
-            $photos = $album->photos;
-            $photos[] = moveUploadedFile($this->upload_dir, $photo);
-            $album->photos = $photos;
-            $album->save();
+        foreach ($photos as $photo) {
+            if ($photo and $photo->getError() === UPLOAD_ERR_OK) {
+                $album_photos[] = moveUploadedFile($this->upload_dir, $photo);
+            }
         }
+
+        $album->photos = $album_photos;
+        $album->save();
 
         return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
     }
@@ -103,6 +105,7 @@ class AlbumController extends Controller
         $photo = $photos[$index];
         unset($photos[$index]);
         unlink($this->upload_dir . '/' . $photo);
+        unlink($this->upload_dir . '/thumb/' . $photo);
         $album->photos = $photos;
         $album->save();
 
@@ -119,11 +122,31 @@ class AlbumController extends Controller
 
         foreach ($album->photos as $photo) {
             unlink($this->upload_dir . '/' . $photo);
+            unlink($this->upload_dir . '/thumb/' . $photo);
         }
 
         $album->delete();
 
         return $response->withRedirect('/moderka/albums');
+    }
+
+    public function sort(Request $request, Response $response, $args)
+    {
+        $succes = false;
+        $album = Album::find($args['album'] ?? null);
+
+        if (is_null($album)) {
+            return $response->withStatus(404);
+        }
+
+        $photos = $request->getParam('photos');
+
+        if (is_array($photos)) {
+            $album->photos = $photos;
+            $succes = $album->save();
+        };
+
+        return $response->withJson(compact('succes'));
     }
 
     public function show(Request $request, Response $response, $args)

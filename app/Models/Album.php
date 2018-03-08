@@ -15,12 +15,13 @@ class Album extends Model
     protected $table = 'albums';
 
     protected $casts = [
-        'photos' => 'array'
+        'photos' => 'array',
     ];
 
     protected $fillable = [
         'name',
+        'description',
         'url',
-        'photos'
+        'photos',
     ];
 }
