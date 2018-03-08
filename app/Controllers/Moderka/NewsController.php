@@ -33,7 +33,7 @@ class NewsController extends Controller
     {
         $news = new News($request->getParsedBody());
 
-        $news->url = translit($news->title);
+        $news->url = urlencode(translit($news->title));
 
         $uploadedFiles = $request->getUploadedFiles();
 
@@ -72,7 +72,7 @@ class NewsController extends Controller
 
         $news->fill($request->getParsedBody());
 
-        $news->url = translit($news->title);
+        $news->url = urlencode(translit($news->title));
 
         $uploadedFiles = $request->getUploadedFiles();
 

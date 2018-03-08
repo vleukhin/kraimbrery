@@ -29,10 +29,10 @@
     <img src="/templates/img/main.png" class="header-img" alt="">
 </div>
 <div class="yellow-block">
-    {if $mari_soc.vk?}<a href="{$mari_soc.vk}" target="_blank" class="fa fa-vk" aria-hidden="true"></a>{/if}
-    {if $mari_soc.instagram?}
+    {if $mari_soc.vk}<a href="{$mari_soc.vk}" target="_blank" class="fa fa-vk" aria-hidden="true"></a>{/if}
+    {if $mari_soc.instagram}
     <a href="{$mari_soc.instagram}" target="_blank" class="fa fa-instagram" aria-hidden="true"></a>{/if}
-    {if $mari_soc.facebook?}
+    {if $mari_soc.facebook}
     <a href="{$mari_soc.facebook}" target="_blank" class="fa fa-facebook" aria-hidden="true"></a>{/if}
 </div>
 <div class="gradient">
@@ -48,9 +48,9 @@
         {/foreach}
     </div>
     <div class="neon-line" id="who">Кто она</div>
-    <div class="text-info color-yellow">
+    <div class="text-info color-yellow who-is-she">
         {if $who_is_she_img}
-            <div><img src="{$who_is_she_img}" alt=""></div>{/if}
+            <div style="text-align: center"><img src="{$who_is_she_img}" alt=""></div>{/if}
         {if $who_is_she_head}
             <div class="strong">{$who_is_she_head}</div>{/if}
         {if $who_is_she_intro}
@@ -79,17 +79,22 @@
     <div class="neon-line" id="look">Посмотри на неё</div>
     <div class="carousel-box">
         <div class="btn btn-photo color-yellow">Фотогалерея</div>
-        <div class="slider-02 owl-carousel owl-theme">
-            {foreach $photo as $key => $row}
-                {if !empty($photos[$row]) }
-                    <a href="{$photos[$row]}" target="_blank">
+        <div class="slider-02">
+            <div class="owl-carousel owl-theme">
+                {foreach $photo as $key => $row}
+                    {if !empty($photos[$row]) }
+                        <a href="{$photos[$row]}" target="_blank">
+                            <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
+                        </a>
+                    {else}
                         <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
-                    </a>
-                {else}
-                    <img src="/uploads/photo/{$row}" alt="" class="owl-responsive">
-                {/if}
-            {/foreach}
+                    {/if}
+                {/foreach}
+            </div>
+            <a href="/albums" class="btn btn-video color-yellow">Смотреть все</a>
+
         </div>
+
         <div class="youtube-video">
             {if !empty($video_cover)}
                 <div class="youtube-video__cover ytp-cued-thumbnail-overlay">
@@ -110,21 +115,24 @@
         <div class="weapon">
             <div class="playlist">
                 {if !empty($audio) }
-                    <div class="plyr">
+                    <div class="audio-name">{$audio_name}</div>
+                    <div class="plyr"  data-index="0">
                         <audio controls>
                             <source src="{$audio}" type="audio/mp3">
                         </audio>
                     </div>
                 {/if}
                 {if !empty($audio2) }
-                    <div class="plyr">
+                    <div class="audio-name">{$audio2_name}</div>
+                    <div class="plyr" data-index="1">
                         <audio controls>
                             <source src="{$audio2}" type="audio/mp3">
                         </audio>
                     </div>
                 {/if}
                 {if !empty($audio3) }
-                    <div class="plyr">
+                    <div class="audio-name">{$audio3_name}</div>
+                    <div class="plyr" data-index="2">
                         <audio controls>
                             <source src="{$audio3}" type="audio/mp3">
                         </audio>
@@ -189,7 +197,7 @@
                 <div class="city">{$event.title}</div>
                 <div class="link">
                     {if $event.link }
-                        <a href="{$event.link}" target="_blank" class="btn">Купить билет</a>
+                        <a href="{$event.link}" target="_blank" class="btn">{$event.free ? 'Вход свободный' : 'Купить билет'}</a>
                     {/if}
                 </div>
             </div>
@@ -201,10 +209,10 @@
         <div class="btn-line">
             <div class="contacts">
                 <div class="strong">Организация концертов</div>
-                {if $organization.name?}
+                {if $organization.name}
                     <div>{$organization.name}</div>{/if}
             </div>
-            {if $organization.phone?}
+            {if $organization.phone}
                 <div><a href="tel:{$organization.phone}">{$organization.phone}</a></div>{/if}
         </div>
     </div>
@@ -212,31 +220,33 @@
         <div class="btn-line">
             <div class="contacts">
                 <div class="strong">Менеджер артиста</div>
-                {if $manager.name?}
+                {if $manager.name}
                     <div>{$manager.name}</div>{/if}
             </div>
-            {if $manager.phone?}
+            {if $manager.phone}
                 <div><a href="tel:{$manager.phone}">{$manager.phone}</a></div>{/if}
-            {if $manager.email?}
+            {if $manager.email}
                 <div><a href="mailto:{$manager.email}">{$manager.email}</a></div>{/if}
         </div>
     </div>
     <div class="contacts-box">
-        <a href="{if $velvet_site?}{$velvet_site}{/if}" target="_blank" class="velvet-logo"><img src="/templates/img/velvetmusic-logo.png" alt="velvetmusic"></a>
-        {if $velvet_address?}
+        {if $velvet_site}<a href="http://{$velvet_site}" target="_blank" class="velvet-logo">{/if}
+            <img src="/templates/img/velvetmusic-logo.png" alt="velvetmusic">
+        {if $velvet_site}</a>{/if}
+        {if $velvet_address}
             <address>{$velvet_address}</address>{/if}
-        {if $velvet_phone?}
+        {if $velvet_phone}
             <div><a href="tel:{$velvet_phone}" target="_blank">{$velvet_phone}</a></div>{/if}
-        {if $velvet_email?}
+        {if $velvet_email}
             <div><a href="mailto:{$velvet_email}" target="_blank">{$velvet_email}</a></div>{/if}
-        {if $velvet_site?}
+        {if $velvet_site}
             <div><a href="http://{$velvet_site}" target="_blank">{$velvet_site}</a></div>{/if}
     </div>
     <div class="velvet-soc">
-        {if $velvet_soc.vk?}<a href="{$velvet_soc.vk}" target="_blank" class="fa fa-vk" aria-hidden="true"></a>{/if}
-        {if $velvet_soc.instagram?}
+        {if $velvet_soc.vk}<a href="{$velvet_soc.vk}" target="_blank" class="fa fa-vk" aria-hidden="true"></a>{/if}
+        {if $velvet_soc.instagram}
         <a href="{$velvet_soc.instagram}" target="_blank" class="fa fa-instagram" aria-hidden="true"></a>{/if}
-        {if $velvet_soc.youtube?}
+        {if $velvet_soc.youtube}
         <a href="{$velvet_soc.youtube}" target="_blank" class="fa fa-youtube-play" aria-hidden="true"></a>{/if}
     </div>
 </div>

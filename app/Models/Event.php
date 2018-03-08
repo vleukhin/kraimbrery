@@ -23,6 +23,7 @@ class Event extends Model
         'title',
         'link',
         'date',
+        'free',
         'weight',
     ];
 }

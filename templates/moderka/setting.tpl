@@ -62,6 +62,9 @@
                     mp3 файл
                     <input type="file" class="form-control" name="audio" id="audio" accept=".mp3">
                 </label>
+                <br><br>
+                <label for="audio_name">Название</label>
+                <input type="text" name="c[audio_name]" class="form-control" value="{$c.audio_name}">
             </div>
             <div class="col-4">
                 <div>
@@ -73,6 +76,9 @@
                     mp3 файл
                     <input type="file" class="form-control" name="audio2" id="audio" accept=".mp3">
                 </label>
+                <br><br>
+                <label for="audio_name">Название</label>
+                <input type="text" name="c[audio2_name]" class="form-control" value="{$c.audio2_name}">
             </div>
             <div class="col-4">
                 <div>
@@ -84,6 +90,9 @@
                     mp3 файл
                     <input type="file" class="form-control" name="audio3" id="audio" accept=".mp3">
                 </label>
+                <br><br>
+                <label for="audio_name">Название</label>
+                <input type="text" name="c[audio3_name]" class="form-control" value="{$c.audio3_name}">
             </div>
         </div>
         <div class="form-group row">

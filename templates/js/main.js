@@ -6538,7 +6538,22 @@
 
 $(document).ready(function () {
     (function () {
-        plyr.setup(document.getElementsByClassName('plyr'));
+        function on(element, type, callback) {
+            if (!(element instanceof HTMLElement)) {
+                element = get(element);
+            }
+            element.addEventListener(type, callback, false);
+        }
+
+        var players = plyr.setup(document.getElementsByClassName('plyr'));
+
+        $('.plyr').on('play', function (player) {
+            for (index in [0, 1, 2]){
+                if (index != $(player.currentTarget).data('index')){
+                    players[index].pause();
+                }
+            }
+        });
         /*var radio = document.querySelector('.plyr').plyr;
 
         var player = document.querySelector('.playlist');

@@ -37,7 +37,7 @@ class Moderka
                 if (file_exists($path . $file) && is_file($path . $file)) {
                     unlink($path . $file);
                 }
-                unset($slides['$file']);
+                unset($slides['file']);
                 $this->saveSlides($slides, $type);
 
             } elseif ($action == 'add' && !empty($_FILES[$type]['name'][0])) {
