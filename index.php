@@ -60,5 +60,6 @@ $app->post('/moderka/albums/{album}/edit', App\Controllers\Moderka\AlbumControll
 $app->post('/moderka/albums/{album}/delete', App\Controllers\Moderka\AlbumController::class .':delete');
 $app->post('/moderka/album/{album}/add-photo', App\Controllers\Moderka\AlbumController::class .':addPhoto');
 $app->get('/moderka/albums/{album}/delete-photo/{index}', App\Controllers\Moderka\AlbumController::class .':deletePhoto');
+$app->post('/moderka/albums/{album}/sort', App\Controllers\Moderka\AlbumController::class .':sort');
 
 $app->run();

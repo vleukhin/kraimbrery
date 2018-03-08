@@ -80,7 +80,7 @@ class AlbumController extends Controller
         $photos = $request->getUploadedFiles()['photos'] ?? null;
         $album_photos = $album->photos;
 
-        foreach ($photos as $photo){
+        foreach ($photos as $photo) {
             if ($photo and $photo->getError() === UPLOAD_ERR_OK) {
                 $album_photos[] = moveUploadedFile($this->upload_dir, $photo);
             }
@@ -126,6 +126,25 @@ class AlbumController extends Controller
         $album->delete();
 
         return $response->withRedirect('/moderka/albums');
+    }
+
+    public function sort(Request $request, Response $response, $args)
+    {
+        $succes = false;
+        $album = Album::find($args['album'] ?? null);
+
+        if (is_null($album)) {
+            return $response->withStatus(404);
+        }
+
+        $photos = $request->getParam('photos');
+
+        if (is_array($photos)) {
+            $album->photos = $photos;
+            $succes = $album->save();
+        };
+
+        return $response->withJson(compact('succes'));
     }
 
     public function show(Request $request, Response $response, $args)

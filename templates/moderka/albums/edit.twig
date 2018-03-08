@@ -40,18 +40,19 @@
         </div>
     </form>
     <hr>
-    {% for index, photo in album.photos %}
-        <div class="photo img-thumbnail">
-            <img src="/uploads/albums/{{ photo }}">
-            <br><br>
-            <div class="text-center">
-                <a href="/moderka/albums/{{ album.id }}/delete-photo/{{ index }}" class="btn btn-danger" role="button">
-                    <i class="fa fa-trash"></i>
-                </a>
+    <div class="photos">
+        {% for index, photo in album.photos %}
+            <div class="photo img-thumbnail" data-photo="{{ photo }}">
+                <img src="/uploads/albums/{{ photo }}">
+                <br><br>
+                <div class="text-center">
+                    <a href="/moderka/albums/{{ album.id }}/delete-photo/{{ index }}" class="btn btn-danger" role="button">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
             </div>
-        </div>
-    {% endfor %}
-
+        {% endfor %}
+    </div>
     <style>
         .img-thumbnail {
             max-width: 200px;
@@ -79,7 +80,18 @@
 {% block scripts %}
     <script>
         $(document).ready(function () {
-            $(".img-thumbnail").sortable();
+            $(".photos").sortable({
+                update: function( event, ui ) {
+                    var order = [];
+                    $('.photo').each(function (index, photo) {
+                        order.push($(photo).data('photo'));
+                    });
+
+                    $.post('/moderka/albums/{{ album.id }}/sort', {
+                        photos: order
+                    })
+                }
+            });
         });
     </script>
 {% endblock %}
