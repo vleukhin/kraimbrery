@@ -8,6 +8,9 @@
         </div>
         <div class="gradient content">
             <h1 class="color-yellow">{{ album.name }}</h1>
+            {% if album.description %}
+                <p class="color-yellow">{{ album.description }}</p>
+            {% endif %}
             <div class="album">
 
                 {% for photo in album.photos %}

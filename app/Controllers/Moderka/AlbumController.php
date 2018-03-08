@@ -60,10 +60,9 @@ class AlbumController extends Controller
             return $response->withStatus(404);
         }
 
-        $name = $request->getParam('name');
-
         $album->update([
-            'name' => $name,
+            'name'        => $request->getParam('name'),
+            'description' => $request->getParam('description'),
         ]);
 
         return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
