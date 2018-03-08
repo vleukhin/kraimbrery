@@ -4710,3 +4710,10 @@ nav {
     color: #f6de5b;
     text-align: center;
 }
+
+@media all and (max-width: 500px) {
+    .album .photo {
+        max-width: 80px;
+        max-height: 80px;
+    }
+}
