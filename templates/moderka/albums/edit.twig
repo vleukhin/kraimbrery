@@ -43,7 +43,7 @@
     <div class="photos">
         {% for index, photo in album.photos %}
             <div class="photo img-thumbnail" data-photo="{{ photo }}">
-                <img src="/uploads/albums/{{ photo }}">
+                <img src="/uploads/albums/thumb/{{ photo }}">
                 <br><br>
                 <div class="text-center">
                     <a href="/moderka/albums/{{ album.id }}/delete-photo/{{ index }}" class="btn btn-danger" role="button">

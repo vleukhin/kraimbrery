@@ -15,7 +15,7 @@
 
                 {% for photo in album.photos %}
                     <a id="single_image" data-fancybox="gallery" href="/uploads/albums/{{ photo }}" class="photo">
-                        <img src="/uploads/albums/{{ photo }}" alt=""/>
+                        <img src="/uploads/albums/thumb/{{ photo }}" alt=""/>
                     </a>
                 {% endfor %}
             </div>

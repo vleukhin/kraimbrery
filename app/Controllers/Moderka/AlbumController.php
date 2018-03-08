@@ -105,6 +105,7 @@ class AlbumController extends Controller
         $photo = $photos[$index];
         unset($photos[$index]);
         unlink($this->upload_dir . '/' . $photo);
+        unlink($this->upload_dir . '/thumb/' . $photo);
         $album->photos = $photos;
         $album->save();
 
@@ -121,6 +122,7 @@ class AlbumController extends Controller
 
         foreach ($album->photos as $photo) {
             unlink($this->upload_dir . '/' . $photo);
+            unlink($this->upload_dir . '/thumb/' . $photo);
         }
 
         $album->delete();

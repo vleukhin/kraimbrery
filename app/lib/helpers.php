@@ -4,35 +4,80 @@
  * Tel: +7-926-797-5419
  * E-mail: vleukhin@ya.ru
  */
-if (!function_exists('translit')){
+if (!function_exists('translit')) {
     function translit(string $string): string
     {
-        $converter = array(
-            'а' => 'a', 'б' => 'b', 'в' => 'v',
-            'г' => 'g', 'д' => 'd', 'е' => 'e',
-            'ё' => 'e', 'ж' => 'zh', 'з' => 'z',
-            'и' => 'i', 'й' => 'y', 'к' => 'k',
-            'л' => 'l', 'м' => 'm', 'н' => 'n',
-            'о' => 'o', 'п' => 'p', 'р' => 'r',
-            'с' => 's', 'т' => 't', 'у' => 'u',
-            'ф' => 'f', 'х' => 'h', 'ц' => 'c',
-            'ч' => 'ch', 'ш' => 'sh', 'щ' => 'sch',
-            'ь' => "", 'ы' => 'y', 'ъ' => "",
-            'э' => 'e', 'ю' => 'yu', 'я' => 'ya',
+        $converter = [
+            'а' => 'a',
+            'б' => 'b',
+            'в' => 'v',
+            'г' => 'g',
+            'д' => 'd',
+            'е' => 'e',
+            'ё' => 'e',
+            'ж' => 'zh',
+            'з' => 'z',
+            'и' => 'i',
+            'й' => 'y',
+            'к' => 'k',
+            'л' => 'l',
+            'м' => 'm',
+            'н' => 'n',
+            'о' => 'o',
+            'п' => 'p',
+            'р' => 'r',
+            'с' => 's',
+            'т' => 't',
+            'у' => 'u',
+            'ф' => 'f',
+            'х' => 'h',
+            'ц' => 'c',
+            'ч' => 'ch',
+            'ш' => 'sh',
+            'щ' => 'sch',
+            'ь' => "",
+            'ы' => 'y',
+            'ъ' => "",
+            'э' => 'e',
+            'ю' => 'yu',
+            'я' => 'ya',
 
-            'А' => 'A', 'Б' => 'B', 'В' => 'V',
-            'Г' => 'G', 'Д' => 'D', 'Е' => 'E',
-            'Ё' => 'E', 'Ж' => 'Zh', 'З' => 'Z',
-            'И' => 'I', 'Й' => 'Y', 'К' => 'K',
-            'Л' => 'L', 'М' => 'M', 'Н' => 'N',
-            'О' => 'O', 'П' => 'P', 'Р' => 'R',
-            'С' => 'S', 'Т' => 'T', 'У' => 'U',
-            'Ф' => 'F', 'Х' => 'H', 'Ц' => 'C',
-            'Ч' => 'Ch', 'Ш' => 'Sh', 'Щ' => 'Sch',
-            'Ь' => "", 'Ы' => 'Y', 'Ъ' => "",
-            'Э' => 'E', 'Ю' => 'Yu', 'Я' => 'Ya',
-            ' ' => '-', ',' => ''
-        );
+            'А' => 'A',
+            'Б' => 'B',
+            'В' => 'V',
+            'Г' => 'G',
+            'Д' => 'D',
+            'Е' => 'E',
+            'Ё' => 'E',
+            'Ж' => 'Zh',
+            'З' => 'Z',
+            'И' => 'I',
+            'Й' => 'Y',
+            'К' => 'K',
+            'Л' => 'L',
+            'М' => 'M',
+            'Н' => 'N',
+            'О' => 'O',
+            'П' => 'P',
+            'Р' => 'R',
+            'С' => 'S',
+            'Т' => 'T',
+            'У' => 'U',
+            'Ф' => 'F',
+            'Х' => 'H',
+            'Ц' => 'C',
+            'Ч' => 'Ch',
+            'Ш' => 'Sh',
+            'Щ' => 'Sch',
+            'Ь' => "",
+            'Ы' => 'Y',
+            'Ъ' => "",
+            'Э' => 'E',
+            'Ю' => 'Yu',
+            'Я' => 'Ya',
+            ' ' => '-',
+            ',' => '',
+        ];
 
 
         // переводим в латиницу русские символы
@@ -58,7 +103,32 @@ if (!function_exists('translit')){
         $filename = sprintf('%s.%0.8s', $basename, $extension);
 
         $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
+        createThumbs($directory, $filename);
 
         return $filename;
+    }
+
+    function createThumbs(string $directory, string $filename)
+    {
+        $filepath = $directory . '/' . $filename;
+
+        $config = [
+            'thumb' => '200x200',
+        ];
+
+        // Создаём миниатюры
+        $quality = 80;
+
+        foreach ($config as $thumb => $size) {
+            $thumb_directory = $directory . '/' . $thumb . '/';
+            $mkdir = is_dir($thumb_directory) ? true : mkdir($thumb_directory, 0777, true);
+            if ($mkdir) {
+                shell_exec("convert $filepath -resize $size^ -gravity center -extent $size -quality $quality $thumb_directory$filename");
+            } else {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
