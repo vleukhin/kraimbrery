@@ -10,7 +10,7 @@
             <div class="album">
                 {% for album in albums %}
                     <a id="single_image" href="/album-{{ album.id }}-{{ album.url }}" class="photo photo-main">
-                        <img src="/uploads/albums/{{ album.photos[0] }}" alt=""/>
+                        <img src="/uploads/albums/thumb/{{ album.photos[0] }}" alt=""/>
                         <span class="album-name">
                             {{ album.name }}
                         </span>
