@@ -42,7 +42,7 @@
     <hr>
     {% for index, photo in album.photos %}
         <div class="photo img-thumbnail">
-            <img src="/uploads/albums/{{ photo }}" class="img-thumbnail">
+            <img src="/uploads/albums/{{ photo }}">
             <br><br>
             <div class="text-center">
                 <a href="/moderka/albums/{{ album.id }}/delete-photo/{{ index }}" class="btn btn-danger" role="button">
@@ -55,6 +55,17 @@
     <style>
         .img-thumbnail {
             max-width: 200px;
+            min-height: 272px;
+            width: 100%;
+        }
+
+        .img-thumbnail img{
+            padding: .25rem;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: .25rem;
+            max-width: 200px;
+            max-height: 200px;
             width: 100%;
         }
 
