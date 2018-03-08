@@ -29,7 +29,7 @@
             <div class="col-12">
                 <label for="photo" class="custom-file">
                     Выберите изображение
-                    <input type="file" class="form-control" multiple="multiple" name="photo" id="photo" accept=".png,.jpg,.jpeg">
+                    <input type="file" class="form-control" multiple="multiple" name="photos[]" id="photo" accept=".png,.jpg,.jpeg" multiple>
                 </label>
             </div>
         </div>
@@ -63,5 +63,13 @@
             margin: 5px;
         }
     </style>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function () {
+            $(".img-thumbnail").sortable();
+        });
+    </script>
 {% endblock %}
 

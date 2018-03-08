@@ -77,14 +77,17 @@ class AlbumController extends Controller
         }
 
         /** @var UploadedFile $photo */
-        $photo = $request->getUploadedFiles()['photo'] ?? null;
+        $photos = $request->getUploadedFiles()['photos'] ?? null;
+        $album_photos = $album->photos;
 
-        if ($photo and $photo->getError() === UPLOAD_ERR_OK) {
-            $photos = $album->photos;
-            $photos[] = moveUploadedFile($this->upload_dir, $photo);
-            $album->photos = $photos;
-            $album->save();
+        foreach ($photos as $photo){
+            if ($photo and $photo->getError() === UPLOAD_ERR_OK) {
+                $album_photos[] = moveUploadedFile($this->upload_dir, $photo);
+            }
         }
+
+        $album->photos = $album_photos;
+        $album->save();
 
         return $response->withRedirect('/moderka/albums/' . $album->id . '/edit');
     }
