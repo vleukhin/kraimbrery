@@ -52,6 +52,7 @@ $app->post('/moderka/news/create', App\Controllers\Moderka\NewsController::class
 $app->get('/moderka/news/{id}/edit', App\Controllers\Moderka\NewsController::class .':edit');
 $app->post('/moderka/news/{id}/update', App\Controllers\Moderka\NewsController::class .':update');
 $app->post('/moderka/news/{id}/delete', App\Controllers\Moderka\NewsController::class .':delete');
+$app->post('/moderka/news/sort', App\Controllers\Moderka\NewsController::class .':sort');
 
 $app->get('/moderka/albums', App\Controllers\Moderka\AlbumController::class .':adminList');
 $app->post('/moderka/albums/create', App\Controllers\Moderka\AlbumController::class .':create');

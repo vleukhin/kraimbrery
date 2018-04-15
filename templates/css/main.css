@@ -4709,11 +4709,20 @@ nav {
 .album-name {
     color: #f6de5b;
     text-align: center;
+    display: block;
 }
 
 @media all and (max-width: 500px) {
     .album .photo {
         max-width: 80px;
         max-height: 80px;
+    }
+    .album .photo-main {
+        max-height: none;
+    }
+
+    .album .album-name {
+        font-size: 10px;
+        line-height: 12px;
     }
 }

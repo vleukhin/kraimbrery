@@ -88,6 +88,17 @@ class NewsController extends Controller
         return $response->withRedirect('/moderka/news');
     }
 
+    public function sort(Request $request, Response $response)
+    {
+        $order = $request->getParsedBody()['order'] ?? [];
+
+        foreach ($order as $weight => $id){
+            News::where('id', $id)->update(['weight' => $weight]);
+        }
+
+        return $response;
+    }
+
     public function delete(Request $request, Response $response, $args)
     {
         $news = News::find($args['id']);
@@ -121,7 +132,7 @@ class NewsController extends Controller
     public function list(Request $request, Response $response)
     {
         return $this->twig->render($response, 'news/list.twig', [
-            'list' => News::all(),
+            'list' => News::orderBy('weight')->get(),
         ]);
     }
 }

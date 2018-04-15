@@ -13,9 +13,16 @@
             <th>Дата создания</th>
             <th>Действия</th>
         </tr>
+        <tbody id="news">
         {% for item in news %}
             <tr>
-                <td>{{ item.id }}</td>
+                <th scope="col">
+                    <i class="fa fa-bars" style="cursor:pointer;"></i>
+                    <input type="hidden" name="id" value="{{ item.id }}">
+                </th>
+                <td>
+                    {{ item.id }}
+                </td>
                 <td>{{ item.title }}</td>
                 <td>{{ item.created_at }}</td>
                 <td>
@@ -26,5 +33,25 @@
                 </td>
             </tr>
         {% endfor %}
+        </tbody>
     </table>
+
+    <script>
+        (function ($) {
+            $(document).ready(function () {
+                $('#news').sortable({
+                    handle: '.fa-bars',
+                    stop: function (event, ui) {
+                        var ids = [];
+
+                        $('[name=id]').each(function (index) {
+                            ids.push($(this).val());
+                        });
+
+                        $.post('/moderka/news/sort', {order: ids});
+                    }
+                });
+            });
+        })(window.jQuery);
+    </script>
 {% endblock %}
