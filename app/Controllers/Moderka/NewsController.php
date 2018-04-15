@@ -17,7 +17,7 @@ class NewsController extends Controller
 
     public function adminList(Request $request, Response $response)
     {
-        $news = News::orderBy('weight')->get();
+        $news = News::orderBy('weight', 'desc')->get();
 
         return $this->twig->render($response, 'moderka/news/list.twig', [
             'news' => $news,
@@ -34,6 +34,7 @@ class NewsController extends Controller
         $news = new News($request->getParsedBody());
 
         $news->url = urlencode(translit($news->title));
+        $news->weight = News::max('weight') + 1;
 
         $uploadedFiles = $request->getUploadedFiles();
 
@@ -91,9 +92,11 @@ class NewsController extends Controller
     public function sort(Request $request, Response $response)
     {
         $order = $request->getParsedBody()['order'] ?? [];
+        $count = count($order);
 
-        foreach ($order as $weight => $id){
-            News::where('id', $id)->update(['weight' => $weight]);
+        foreach ($order as $id){
+            News::where('id', $id)->update(['weight' => $count]);
+            $count--;
         }
 
         return $response;
@@ -132,7 +135,7 @@ class NewsController extends Controller
     public function list(Request $request, Response $response)
     {
         return $this->twig->render($response, 'news/list.twig', [
-            'list' => News::orderBy('weight')->get(),
+            'list' => News::orderBy('weight', 'desc')->get()
         ]);
     }
 }
