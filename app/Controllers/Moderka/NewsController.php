@@ -17,7 +17,7 @@ class NewsController extends Controller
 
     public function adminList(Request $request, Response $response)
     {
-        $news = News::all();
+        $news = News::orderBy('weight')->get();
 
         return $this->twig->render($response, 'moderka/news/list.twig', [
             'news' => $news,
