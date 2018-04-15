@@ -39,7 +39,7 @@ class Landing
         $path = dirname(__FILE__).'/../../uploads/';
 
         $vars = array(
-            'last_news' => News::orderBy('created_at', 'desc')->first(),
+            'last_news' => News::orderBy('weight')->first(),
             'slider' => $this->getImg($path.'slider/'),
             'slides' => require dirname(__FILE__).'/../slider.php',
             'photos' => require dirname(__FILE__).'/../photo.php',
