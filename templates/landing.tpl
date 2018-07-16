@@ -214,6 +214,12 @@
             </div>
             {if $organization.phone}
                 <div><a href="tel:{$organization.phone}">{$organization.phone}</a></div>{/if}
+
+            {if $organization.email}
+                <div>
+                    <a href="mailto:{$organization.email}">{$organization.email}</a>
+                </div>
+            {/if}
         </div>
     </div>
     <div class="contacts-box">

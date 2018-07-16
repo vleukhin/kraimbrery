@@ -139,6 +139,10 @@
                 <label for="validationCustom04">Телефон</label>
                 <input type="text" class="form-control" name="c[organization_phone]" value="{$c.organization_phone ?: ''}" id="organization_phone" required>
             </div>
+            <div class="col-md-4">
+                <label for="manager_email">E-mail</label>
+                <input type="text" class="form-control" name="c[organization_email]" value="{$c.organization_email ?: ''}" id="organization_email" required>
+            </div>
         </div>
         <h3>Менеджер артиста</h3>
         <div class="form-group row">

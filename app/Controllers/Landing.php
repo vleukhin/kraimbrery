@@ -70,6 +70,7 @@ class Landing
             'organization' => array(
                 'name' => !empty($this->config['organization_name']) ? $this->config['organization_name'] : '',
                 'phone' => !empty($this->config['organization_phone']) ? $this->config['organization_phone'] : '',
+                'email' => !empty($this->config['organization_email']) ? $this->config['organization_email'] : '',
             ),
             'manager' => array(
                 'name' => !empty($this->config['manager_name']) ? $this->config['manager_name'] : '',
